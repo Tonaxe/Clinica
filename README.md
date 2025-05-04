@@ -36,23 +36,24 @@ El sistema está diseñado con una arquitectura orientada a objetos, centrada en
   - `DíaSemana`: Lunes a Domingo.
   - `TipoPago`: Efectivo, Tarjeta, Seguro, etc.
 
----
 
-##  Diagrama UML
-
-El diseño está representado en un diagrama UML que ilustra las relaciones entre clases: herencias, asociaciones y composición. Esto facilita la expansión del sistema hacia una base de datos y la conexión con interfaces gráficas o APIs.
 
 
 ---
 
-##  Tecnologías sugeridas
 
-Este sistema está preparado para integrarse con tecnologías como:
+##  Requisitos
 
-- **Java/Python** para la lógica del sistema.
-- **MySQL/PostgreSQL** para la base de datos.
-- **Spring Boot/Django** para desarrollo web.
-- **React/Vue** para el frontend.
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
+
+- [**Node.js**](https://nodejs.org/)  
+  Necesario para ejecutar el frontend.
+
+- [**Visual Studio 2022**](https://visualstudio.microsoft.com/es/)  
+  Requerido para ejecutar y recompilar la API.
+
+- [**Git**](https://git-scm.com/)  
+  Para clonar el repositorio y trabajar con el control de versiones.
 
 ---
 
