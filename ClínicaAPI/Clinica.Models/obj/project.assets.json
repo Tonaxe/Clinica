@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj",
+      "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj",
       "projectName": "Clinica.Models",
-      "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj",
+      "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj",
       "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\obj\\",
+      "outputPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",

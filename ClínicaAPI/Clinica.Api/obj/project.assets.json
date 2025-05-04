@@ -1347,7 +1347,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "Clinica.Models": "1.0.0",
+          "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2"
         },
         "compile": {
@@ -3595,18 +3595,18 @@
     },
     "Clinica.Library/1.0.0": {
       "type": "project",
-      "path": "../DavxeShop.Library/Clinica.Library.csproj",
-      "msbuildProject": "../DavxeShop.Library/Clinica.Library.csproj"
+      "path": "../Clinica.Library/Clinica.Library.csproj",
+      "msbuildProject": "../Clinica.Library/Clinica.Library.csproj"
     },
     "Clinica.Models/1.0.0": {
       "type": "project",
-      "path": "../DavxeShop.Models/Clinica.Models.csproj",
-      "msbuildProject": "../DavxeShop.Models/Clinica.Models.csproj"
+      "path": "../Clinica.Models/Clinica.Models.csproj",
+      "msbuildProject": "../Clinica.Models/Clinica.Models.csproj"
     },
     "Clinica.Persistance/1.0.0": {
       "type": "project",
-      "path": "../DavxeShop.Persistance/Clinica.Persistance.csproj",
-      "msbuildProject": "../DavxeShop.Persistance/Clinica.Persistance.csproj"
+      "path": "../Clinica.Persistance/Clinica.Persistance.csproj",
+      "msbuildProject": "../Clinica.Persistance/Clinica.Persistance.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3624,11 +3624,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Api\\Clinica.Api.csproj",
+      "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Api\\Clinica.Api.csproj",
       "projectName": "Clinica.Api",
-      "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Api\\Clinica.Api.csproj",
+      "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Api\\Clinica.Api.csproj",
       "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Api\\obj\\",
+      "outputPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3646,11 +3646,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj": {
-              "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj"
+            "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj": {
+              "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj"
             },
-            "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj": {
-              "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj"
+            "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj": {
+              "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj"
             }
           }
         }
@@ -3705,5 +3705,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

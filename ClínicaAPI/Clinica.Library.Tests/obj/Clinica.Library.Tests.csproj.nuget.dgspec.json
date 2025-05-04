@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library.Tests\\Clinica.Library.Tests.csproj": {}
+    "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library.Tests\\Clinica.Library.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library.Tests\\Clinica.Library.Tests.csproj": {
+    "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library.Tests\\Clinica.Library.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library.Tests\\Clinica.Library.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library.Tests\\Clinica.Library.Tests.csproj",
         "projectName": "Clinica.Library.Tests",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library.Tests\\Clinica.Library.Tests.csproj",
+        "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library.Tests\\Clinica.Library.Tests.csproj",
         "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library.Tests\\obj\\",
+        "outputPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj"
+              "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj": {
+                "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj"
               }
             }
           }
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj": {
+    "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj",
+        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj",
         "projectName": "Clinica.Library",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\Clinica.Library.csproj",
+        "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\Clinica.Library.csproj",
         "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Library\\obj\\",
+        "outputPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -112,11 +112,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj"
+              "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj": {
+                "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj"
               },
-              "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\Clinica.Persistance.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\Clinica.Persistance.csproj"
+              "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\Clinica.Persistance.csproj": {
+                "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\Clinica.Persistance.csproj"
               }
             }
           }
@@ -185,14 +185,14 @@
         }
       }
     },
-    "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj": {
+    "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj",
+        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj",
         "projectName": "Clinica.Models",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj",
+        "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\Clinica.Models.csproj",
         "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\obj\\",
+        "outputPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -246,14 +246,14 @@
         }
       }
     },
-    "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\Clinica.Persistance.csproj": {
+    "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\Clinica.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\Clinica.Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\Clinica.Persistance.csproj",
         "projectName": "Clinica.Persistance",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\Clinica.Persistance.csproj",
+        "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\Clinica.Persistance.csproj",
         "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\obj\\",
+        "outputPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -271,8 +271,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Models\\Clinica.Models.csproj"
+              "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
+                "projectPath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj"
               }
             }
           }

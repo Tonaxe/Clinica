@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tw+alMpsYMU=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\yassi\\Desktop\\Clínica\\ClínicaAPI\\DavxeShop.Persistance\\Clinica.Persistance.csproj",
+  "dgSpecHash": "Tr3jtTjTzq0=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\Clinica.Persistance\\Clinica.Persistance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yassi\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\yassi\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -84,5 +84,15 @@
     "C:\\Users\\yassi\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\yassi\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\yassi\\Desktop\\Clinica\\ClínicaAPI\\DavxeShop.Models\\DavxeShop.Models.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
