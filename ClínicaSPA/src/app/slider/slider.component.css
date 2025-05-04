@@ -1,0 +1,15 @@
+.carousel-inner .carousel-item img.max-size {
+    max-width: 300px;
+    max-height: 400px;
+    justify-self: center;
+    object-fit: cover;
+    padding-bottom: 80px;
+}
+
+.carousel-caption {
+    bottom: 0;
+    left: 0;
+    right: 0;  
+    background: rgba(0, 0, 0, 0.5); 
+    color: #fff;
+}
