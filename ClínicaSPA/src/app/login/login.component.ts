@@ -2,38 +2,36 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
-import { LogInRequest } from '../models/logIn.model';
 
 @Component({
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      rememberMe: [false]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const form: LogInRequest = {
+      const form = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
       };
 
       this.apiService.logIn(form).subscribe(
         (res) => {
-          this.router.navigate(["/home"]);
+          this.router.navigate(['/home']);
         },
         (error) => {
-          console.log("gg?");
+          console.error('Error de login', error);
         }
       );
     } else {

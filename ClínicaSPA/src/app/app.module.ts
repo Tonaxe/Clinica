@@ -8,23 +8,14 @@ import { routes } from './app.routes';
 import { FormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { RecuperarContrasenaComponent } from './login/recuperar-contrasena/recuperar-contrasena.component';
-import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
-import { AddProductComponent } from './add-product/add-product.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    RegisterComponent,
     LoginComponent,
-    RecuperarContrasenaComponent,
-    ResetPasswordComponent,
-    AddProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,78 @@
-<header class="app-header">
-    <div class="logo-container">
-        <a href="/home">
-            <img src="assets/logo2.png" alt="Logo" class="logo">
-        </a>
-    </div>
-
-    <div class="header-content">
-        <div class="search-container">
-            <input type="text" placeholder="Buscar..." class="search-bar">
+<div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/tooth-icon.png" alt="Logo" />
+            <h1>Consultorio<br />Odontológico</h1>
         </div>
 
-        <nav class="nav-links">
-            <a href="/my-products" class="nav-item">Mis productos</a>
-            <a href="/add-product" class="nav-item">Vender</a>
-            <a href="/chat" class="nav-item">Chat</a>
-        </nav>
-    </div>
+        <hr class="sidebar-separator top" />
 
-    <div class="profile-container">
-        <img src="assets/logo.png" alt="Perfil" class="profile-pic">
+        <nav class="nav">
+
+            <!-- Opciones solo para ADMINISTRATIVO -->
+            <ng-container *ngIf="user.role === 'admin'">
+                <ul>
+                    <li>
+                        <a routerLink="/dashboard" routerLinkActive="active">Menu principal</a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a routerLink="/odontologos" routerLinkActive="active">Odontólogos</a>
+                    </li>
+                    <li>
+                        <a routerLink="/pacientes" routerLinkActive="active">Pacientes</a>
+                    </li>
+                    <li>
+                        <a routerLink="/usuarios" routerLinkActive="active">Usuarios</a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a routerLink="/visitas/nueva" routerLinkActive="active">Registrar Visita</a>
+                    </li>
+                    <li>
+                        <a routerLink="/visitas" routerLinkActive="active">Consultar Visitas</a>
+                    </li>
+                </ul>
+            </ng-container>
+
+            <!-- Opciones solo para ODONTÓLOGO -->
+            <ng-container *ngIf="user.role === 'odontologo'">
+                <ul>
+                    <li>
+                        <a routerLink="/dashboard" routerLinkActive="active">Menu principal</a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a routerLink="/mis-visitas" routerLinkActive="active">Mis Visitas</a>
+                    </li>
+                    <li>
+                        <a routerLink="/mis-pacientes" routerLinkActive="active">Mis Pacientes</a>
+                    </li>
+                </ul>
+            </ng-container>
+        </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="main">
+        <!-- Header -->
+        <header class="header">
+            <div class="user-info">
+                <span>{{ user.name }}</span>
+                <img src="assets/yassinpfp.jpg" alt="Perfil" />
+            </div>
+        </header>
+
+        <main class="content">
+            <router-outlet></router-outlet> <!-- Este es el lugar donde se renderiza el contenido de los otros componentes -->
+          </main>
+        
     </div>
-</header>
+</div>

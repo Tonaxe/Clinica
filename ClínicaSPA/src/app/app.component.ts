@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  title = 'DavxeShop';
+  title = 'Clínica';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   shouldShowHeader(): boolean {
-    return !['/login', '/register', '/recover-password', '/reset-password'].some(route => this.router.url.startsWith(route));
+    const isLoginPage = this.router.url === '/login';
+    return !isLoginPage;
   }
 }
