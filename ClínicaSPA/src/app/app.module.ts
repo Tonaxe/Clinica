@@ -12,8 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarContrasenaComponent } from './login/recuperar-contrasena/recuperar-contrasena.component';
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
-import { SliderComponent } from './slider/slider.component';
-import { MyProductsComponent } from './my-products/my-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 
 
@@ -26,8 +24,6 @@ import { AddProductComponent } from './add-product/add-product.component';
     LoginComponent,
     RecuperarContrasenaComponent,
     ResetPasswordComponent,
-    SliderComponent,
-    MyProductsComponent,
     AddProductComponent
   ],
   imports: [
