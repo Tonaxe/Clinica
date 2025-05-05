@@ -60,5 +60,5 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 ##  Clonar el repositorio
 
 ```bash
-git clone git@github.com:Tonaxe/Clinica.git
+git clone https://github.com/Tonaxe/Clinica.git
 cd Clinica
