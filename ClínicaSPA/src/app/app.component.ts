@@ -10,11 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent{
   title = 'Clínica';
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
-  shouldShowHeader(): boolean {
-    const isLoginPage = this.router.url === '/login';
-    return !isLoginPage;
+  isLoginPage(): boolean {
+    return this.router.url === '/login';
   }
 }

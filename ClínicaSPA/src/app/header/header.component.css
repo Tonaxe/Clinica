@@ -1,115 +1,22 @@
-.layout {
-    display: flex;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background-color: #2d5dcc; /* azul médico */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  .logo {
-    display: ruby;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .logo img {
-    width: 80px;
-    margin-left: -10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .logo h1 {
-    font-size: 16px;
-    font-weight: bold;
-    vertical-align: -5px;
-    line-height: 1.2;
-  }
-  
-  .section-title {
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    color: #dcdcdc;
-  }
-  
-  .nav ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .nav li {
-    margin-bottom: 10px;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    display: block;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .nav a:hover,
-  .nav a.active {
-    background-color: #2348a7;
-  }
-  
-  /* Main */
-  .main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #f9f9f9;
-  }
-  
-  /* Header */
-  .header {
-    height: 60px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 20px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .user-info img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  /* Main content */
-  .content {
-    flex-grow: 1;
-    padding: 30px;
-    overflow-y: auto;
-  }
-  
-  .sidebar-separator {
-    border: none;
-    border-top: 4px solid #0716e7;
-    margin: 15px 0;
-  }
-  
+.header {
+  background-color: white;
+  color: #333;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}

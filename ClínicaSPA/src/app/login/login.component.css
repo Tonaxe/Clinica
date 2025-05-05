@@ -83,7 +83,8 @@ button:disabled {
     cursor: not-allowed;
 }
 
-.register, .recuperar {
+.register,
+.recuperar {
     margin-top: 12px;
     font-size: 11px;
     font-family: 'Poppins', sans-serif;

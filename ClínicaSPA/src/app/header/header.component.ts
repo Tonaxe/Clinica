@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,16 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  user = {
-    name: 'Tonaxe Guapo',
-    role: 'odontologo' // Cambiar a 'odontologo' para probar otro menú
-  };
-  rol: 'administrativo' | 'odontologo' = 'administrativo';
+  // user = {
+  //   name: 'Tonaxe Guapo',
+  //   role: 'odontologo' // Cambiar a 'odontologo' para probar otro menú
+  // };
+  // rol: 'administrativo' | 'odontologo' = 'administrativo';
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) {}
   
-  logout() {
-    console.log('Sesión cerrada');
-    this.router.navigate(['/login']);
-  }
+  // logout() {
+  //   console.log('Sesión cerrada');
+  //   this.router.navigate(['/login']);
+  // }
+  @Input() user = {
+    name: 'Usuario'
+  };
 }

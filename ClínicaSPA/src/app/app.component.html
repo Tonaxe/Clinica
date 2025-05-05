@@ -1,3 +1,18 @@
-<app-header></app-header>
-<app-login *ngIf="shouldShowHeader()"></app-login>
-<router-outlet></router-outlet>
+<ng-container *ngIf="!isLoginPage(); else loginLayout">
+    <div class="layout">
+      <app-sidebar></app-sidebar>
+  
+      <div class="main">
+        <app-header></app-header>
+  
+        <main class="content">
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-template #loginLayout>
+    <router-outlet></router-outlet>
+  </ng-template>
+  
