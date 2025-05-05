@@ -1,0 +1,33 @@
+<div class="odontologos-container">
+    <h2>Odontólogos</h2>
+
+    <div class="odontologos-list">
+        <div *ngFor="let odontologo of odontologos; let i = index" class="odontologo-card">
+            <h3>{{ odontologo.nombre }}</h3>
+            <p>Especialidad: {{ odontologo.especialidad }}</p>
+            <p>Horario: {{ odontologo.horarioAtencion }}</p>
+
+            <!-- Botones de editar y eliminar -->
+            <button class="edit-btn" (click)="editOdontologo(i)">Editar</button>
+            <button class="delete-btn" (click)="deleteOdontologo(odontologo.id)">Eliminar</button>
+        </div>
+    </div>
+
+    <div class="add-btn-container">
+        <button class="add-btn" (click)="toggleForm()">Agregar Odontólogo</button>
+    </div>
+
+    <!-- Formulario para agregar o editar odontólogos -->
+    <div *ngIf="showForm" class="odontologo-form">
+        <h3>{{ newOdontologo.id ? 'Editar Odontólogo' : 'Nuevo Odontólogo' }}</h3>
+        <form (ngSubmit)="addOdontologo()">
+            <input type="text" [(ngModel)]="newOdontologo.nombre" name="nombre" placeholder="Nombre" required />
+            <input type="text" [(ngModel)]="newOdontologo.especialidad" name="especialidad" placeholder="Especialidad"
+                required />
+            <input type="text" [(ngModel)]="newOdontologo.horarioAtencion" name="horarioAtencion"
+                placeholder="Horario de Atención" required />
+            <button type="submit">{{ newOdontologo.id ? 'Actualizar' : 'Guardar' }}</button>
+            <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancelar</button>
+        </form>
+    </div>
+</div>

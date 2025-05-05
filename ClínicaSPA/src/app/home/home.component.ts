@@ -1,6 +1,4 @@
 import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { Router } from '@angular/router';
 
 @Component({
   standalone: false,
@@ -8,18 +6,21 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-//holagit
 
 export class HomeComponent implements OnInit {
   user = {
     name: 'Tonaxe Guapo',
-    role: 'odontologo' // El rol vendría de la sesión o de un servicio
+    role: 'admin'
   };
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  stats = {
+    pacientes: 152,
+    odontologos: 7,
+    visitasHoy: 18
+  };
+
+  constructor() {}
 
   ngOnInit(): void {
-    // Aquí puedes cargar los datos del usuario, si es necesario
-    // ejemplo: this.user = this.apiService.getUserData();
   }
 }

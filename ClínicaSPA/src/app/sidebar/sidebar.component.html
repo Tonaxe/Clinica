@@ -3,24 +3,21 @@
         <img src="assets/tooth-icon.png" alt="Logo" />
         <h1>Consultorio<br />Odontológico</h1>
     </div>
-
     <hr class="sidebar-separator top" />
-
     <nav class="nav">
         <ng-container *ngIf="user.role === 'admin'">
             <ul>
-                <li><a routerLink="/dashboard" routerLinkActive="active">Menu principal</a></li>
+                <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
                 <li><a routerLink="/odontologos" routerLinkActive="active">Odontólogos</a></li>
-                <li><a routerLink="/pacientes" routerLinkActive="active">Pacientes</a></li>
+                <li><a routerLink="/paciete" routerLinkActive="active">Pacientes</a></li>
                 <li><a routerLink="/usuarios" routerLinkActive="active">Usuarios</a></li>
                 <li><a routerLink="/visitas/nueva" routerLinkActive="active">Registrar Visita</a></li>
                 <li><a routerLink="/visitas" routerLinkActive="active">Consultar Visitas</a></li>
             </ul>
         </ng-container>
-
         <ng-container *ngIf="user.role === 'odontologo'">
             <ul>
-                <li><a routerLink="/dashboard" routerLinkActive="active">Menu principal</a></li>
+                <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
                 <li><a routerLink="/mis-visitas" routerLinkActive="active">Mis Visitas</a></li>
                 <li><a routerLink="/mis-pacientes" routerLinkActive="active">Mis Pacientes</a></li>
             </ul>

@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { OdontologosComponent } from './odontologos/odontologos.component';
+import { PacienteComponent } from './paciente/paciente.component';
+import { PacienteGestionComponent } from './paciente-gestion/paciente-gestion.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     LoginComponent,
     SidebarComponent,
+    OdontologosComponent,
+    PacienteComponent,
+    PacienteGestionComponent,
   ],
   imports: [
     BrowserModule,

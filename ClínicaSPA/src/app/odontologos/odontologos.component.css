@@ -1,0 +1,183 @@
+.odontologos-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .odontologo-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .odontologos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .odontologo-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .odontologo-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .odontologo-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .odontologo-card button {
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+  
+  .add-btn, .edit-btn, .delete-btn, .cancel-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+  }
+  
+  .add-btn {
+    margin-top: 5%;
+    width: 97%;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .add-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.01);
+  }
+  
+  .edit-btn {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+  
+  .edit-btn:hover {
+    background-color: #138496;
+    transform: scale(1.01);
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.01);
+  }
+  
+  .cancel-btn {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #5a6268;
+    transform: scale(1.01);
+  }
+  
+  .add-btn-container {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  button {
+    width: 48%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.01);
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  button {
+    width: 48%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1);
+  }
+  
+  button[type="button"].cancel-btn {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  button[type="button"].cancel-btn:hover {
+    background-color: #5a6268;
+    transform: scale(1);
+  }
+  
+  button[type="submit"] {
+    margin-right: 4%;
+  }
+  
+  .odontologo-form,
+  .odontologos-list {
+    margin-top: 20px;
+  }
+  

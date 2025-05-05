@@ -1,0 +1,52 @@
+<div class="home-container">
+    <h2>Gestión de Paciente</h2>
+    <div [ngSwitch]="modo">
+        <div *ngSwitchCase="'alta'" class="paciente-form">
+            <h3>Registrar Paciente</h3>
+            <form>
+                <input placeholder="Nombre completo" [(ngModel)]="paciente.nombre" name="nombre" /><br />
+                <input type="number" placeholder="Edad" [(ngModel)]="paciente.edad" name="edad" /><br />
+                <input placeholder="Tipo de Pago" [(ngModel)]="paciente.tipoPago" name="tipoPago" /><br />
+                <input placeholder="Responsable (si es menor)" [(ngModel)]="paciente.responsable"
+                    name="responsable" /><br />
+                <button class="action-button" (click)="registrarPaciente()">Registrar</button>
+            </form>
+        </div>
+        <div *ngSwitchCase="'modificar'">
+            <ng-container *ngIf="paciente">
+                <h3>Modificar Paciente</h3>
+                <form class="paciente-form">
+                    <input [(ngModel)]="paciente.nombre" name="nombre" /><br />
+                    <input type="number" [(ngModel)]="paciente.edad" name="edad" /><br />
+                    <input [(ngModel)]="paciente.tipoPago" name="tipoPago" /><br />
+                    <input [(ngModel)]="paciente.responsable" name="responsable" /><br />
+                    <button class="action-button" (click)="guardarCambios()">Guardar Cambios</button>
+                </form>
+            </ng-container>
+        </div>
+        <div *ngSwitchCase="'baja'">
+            <ng-container *ngIf="paciente">
+                <h3>Baja de Paciente</h3>
+                <div class="paciente-card">
+                    <p><strong>{{ paciente.nombre }}</strong></p>
+                    <p>Edad: {{ paciente.edad }}</p>
+                    <p>Tipo de Pago: {{ paciente.tipoPago }}</p>
+                    <p>Responsable: {{ paciente.responsable || 'No Aplica' }}</p>
+                    <button class="btn-danger" (click)="eliminarPaciente()">Eliminar</button>
+                </div>
+            </ng-container>
+        </div>
+        <div *ngSwitchCase="'historial'">
+            <ng-container *ngIf="paciente">
+                <h3>Historial de {{ paciente.nombre }}</h3>
+                <ul class="historial-list">
+                    <li *ngFor="let visita of paciente.historial">{{ visita }}</li>
+                </ul>
+                <p *ngIf="paciente.historial.length === 0">No hay visitas registradas.</p>
+            </ng-container>
+        </div>
+        <div *ngSwitchDefault>
+            <p>Modo de operación no válido.</p>
+        </div>
+    </div>
+</div>
