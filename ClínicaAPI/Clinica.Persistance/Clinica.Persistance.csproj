@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DavxeShop.Models\DavxeShop.Models.csproj" />
+    <ProjectReference Include="..\Clinica.Models\Clinica.Models.csproj" />
   </ItemGroup>
 
 </Project>

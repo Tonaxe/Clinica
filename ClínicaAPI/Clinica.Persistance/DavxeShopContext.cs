@@ -7,17 +7,15 @@ namespace DavxeShop.Persistance
     {
         public DavxeShopContext(DbContextOptions<DavxeShopContext> options) : base(options) { }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Session> Sessions { get; set; }
-        public DbSet<RecoverCodes> RecoverCodes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().HasKey(u => u.UserId);
+            modelBuilder.Entity<Usuarios>().HasKey(u => u.id);
             modelBuilder.Entity<Session>().HasKey(u => u.SessionId);
-            modelBuilder.Entity<RecoverCodes>().HasKey(u => u.RecoveryCodeId);
         }
     }
 }

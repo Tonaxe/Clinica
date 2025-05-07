@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Clinica.Library\Clinica.Library.csproj" />
-    <ProjectReference Include="..\Clinica.Models\Clinica.Models.csproj" />
   </ItemGroup>
 
 </Project>

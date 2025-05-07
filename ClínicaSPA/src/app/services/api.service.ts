@@ -7,7 +7,7 @@ import { LogInRequest } from '../models/logIn.model';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'https://localhost:44355/api/DavxeShop/';
+  private baseUrl = 'https://localhost:44355/api/Clinica/';
   private headers = { 'Content-Type': 'application/json' };
 
   constructor(private http: HttpClient) { }
