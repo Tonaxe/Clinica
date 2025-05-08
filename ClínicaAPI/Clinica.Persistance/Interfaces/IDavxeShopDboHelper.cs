@@ -5,7 +5,7 @@ namespace DavxeShop.Persistance.Interfaces
 {
     public interface IDavxeShopDboHelper
     {
-        bool LogIn(LoginRequest loginRequest);
+        Usuarios LogIn(LoginRequest loginRequest);
         bool LogOut(string token);
     }
 }

@@ -21,12 +21,19 @@ namespace DavxeShop.Api.Controller
         {
             var logIn = _userService.LogIn(loginRequest);
 
-            if (logIn == false)
+            if (logIn == null)
             {
-                return NotFound(new { logIn = logIn, message = "El usuario no se ha encontrado." });
+                return NotFound(new { user = new
+                {
+                    id = logIn.id,
+                    nombre = logIn.nombre,
+                    apellido = logIn.apellido,
+                    email = logIn.email,
+                    rol = logIn.rol,
+                }, message = "El usuario no se ha encontrado." });
             }
 
-            return Ok(new { logIn = logIn, message = "El usuario se ha encontrado exitosamente." });
+            return Ok(new { user = logIn, message = "El usuario se ha encontrado exitosamente." });
         }
 
         [HttpPost("logout")]

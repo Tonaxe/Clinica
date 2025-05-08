@@ -16,9 +16,9 @@ namespace DavxeShop.Persistance
         {
             _context = context;
         }
-        public bool LogIn(LoginRequest loginRequest)
+        public Usuarios LogIn(LoginRequest loginRequest)
         {
-            return _context.Usuarios.Any(x => x.email == loginRequest.Email && x.contrasena == loginRequest.Password);
+            return _context.Usuarios.FirstOrDefault(x => x.email == loginRequest.Email && x.contrasena == loginRequest.Password);
         }
 
         public bool LogOut(string token) 

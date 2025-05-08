@@ -14,7 +14,7 @@ namespace DavxeShop.Library.Services
             _davxeShopDboHelper = davxeShopDboHelper;
         }
 
-        public bool LogIn(LoginRequest loginRequest)
+        public Usuarios LogIn(LoginRequest loginRequest)
         {
             return _davxeShopDboHelper.LogIn(loginRequest);
         }

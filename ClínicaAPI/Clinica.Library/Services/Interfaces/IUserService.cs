@@ -6,7 +6,7 @@ namespace DavxeShop.Library.Services.Interfaces
 {
     public interface IUserService
     {
-        bool LogIn(LoginRequest loginRequest);
+        Usuarios LogIn(LoginRequest loginRequest);
         bool LogOut(string request);
     }
 }
