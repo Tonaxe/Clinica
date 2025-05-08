@@ -8,5 +8,6 @@
         public string email { get; set; }
         public string contrasena { get; set; }
         public string rol { get; set; }
+        public string Imagen { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Clinica.Models;
 using DavxeShop.Library.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using System.Timers;
 
 namespace DavxeShop.Api.Controller
@@ -23,17 +24,23 @@ namespace DavxeShop.Api.Controller
 
             if (logIn == null)
             {
-                return NotFound(new { user = new
+                return NotFound(new { user = logIn, message = "El usuario no se ha encontrado." });
+            }
+
+            return Ok(new
+            {
+                user = new
                 {
                     id = logIn.id,
                     nombre = logIn.nombre,
                     apellido = logIn.apellido,
                     email = logIn.email,
                     rol = logIn.rol,
-                }, message = "El usuario no se ha encontrado." });
-            }
-
-            return Ok(new { user = logIn, message = "El usuario se ha encontrado exitosamente." });
+                    imagen = logIn.Imagen,
+                }
+                ,
+                message = "El usuario se ha encontrado exitosamente."
+            });
         }
 
         [HttpPost("logout")]
@@ -52,6 +59,28 @@ namespace DavxeShop.Api.Controller
             }
 
             return Ok(new { message = "Operación realizada correctamente." });
+        }
+
+        [HttpPost("usuario/{id}/imagen")]
+        public IActionResult SubirImagen(int id, IFormFile imagen)
+        {
+            var resultado = _userService.SubirImagen(id, imagen);
+            if (!resultado)
+            {
+                return BadRequest("No se pudo subir la imagen.");
+            }
+            return Ok("Imagen subida correctamente.");
+        }
+
+        [HttpGet("usuario/{id}/imagen")]
+        public IActionResult ObtenerImagen(int id)
+        {
+            var imagenBase64 = _userService.ObtenerImagen(id);
+            if (imagenBase64 == null)
+            {
+                return NotFound("Imagen no encontrada.");
+            }
+            return Ok(imagenBase64);
         }
     }
 }

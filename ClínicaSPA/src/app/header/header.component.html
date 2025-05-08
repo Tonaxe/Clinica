@@ -1,6 +1,7 @@
 <header class="header">
     <div class="user-info">
-        <span>{{ user.name }}</span>
-        <img src="assets/yassinpfp.jpg" alt="Perfil" />
+        <span>{{ user.nombre }} {{ user.apellido }}</span>
+        <img *ngIf="user.imagen" [src]="'data:image/jpeg;base64,' + user.imagen" alt="Perfil" />
+        <img *ngIf="!user.imagen" src="assets/tooth-icon.png" alt="Perfil" />
     </div>
 </header>

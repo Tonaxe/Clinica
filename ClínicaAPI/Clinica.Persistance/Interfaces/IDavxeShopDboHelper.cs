@@ -7,5 +7,7 @@ namespace DavxeShop.Persistance.Interfaces
     {
         Usuarios LogIn(LoginRequest loginRequest);
         bool LogOut(string token);
+        bool GuardarImagen(int id, string imagenBase64);
+        string ObtenerImagen(int id);
     }
 }

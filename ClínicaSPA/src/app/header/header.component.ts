@@ -8,19 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  // user = {
-  //   name: 'Tonaxe Guapo',
-  //   role: 'odontologo' // Cambiar a 'odontologo' para probar otro menú
-  // };
-  // rol: 'administrativo' | 'odontologo' = 'administrativo';
-
-  // constructor(private router: Router) {}
-  
-  // logout() {
-  //   console.log('Sesión cerrada');
-  //   this.router.navigate(['/login']);
-  // }
-  @Input() user = {
-    name: 'Usuario'
+  user = {
+    nombre: '',
+    apellido: '',
+    rol: '',
+    imagen: ''
   };
+
+  constructor() {}
+
+  ngOnInit(): void {
+    const userData = sessionStorage.getItem('user');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      console.log(parsedData);
+      this.user.nombre = parsedData.nombre || 'Usuario';
+      this.user.apellido = parsedData.apellido || 'Usuario';
+      this.user.rol = parsedData.rol || 'odontologo';
+      this.user.imagen = parsedData.imagen || '';
+    }
+  }
+
+  logout() {
+    sessionStorage.clear();
+  }
 }

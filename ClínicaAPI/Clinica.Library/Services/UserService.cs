@@ -2,6 +2,7 @@
 using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Models;
 using DavxeShop.Persistance.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace DavxeShop.Library.Services
 {
@@ -22,6 +23,24 @@ namespace DavxeShop.Library.Services
         public bool LogOut(string token)
         {
             return _davxeShopDboHelper.LogOut(token);
+        }
+
+        public bool SubirImagen(int id, IFormFile imagen)
+        {
+            if (imagen == null || imagen.Length == 0)
+                return false;
+
+            using var memoryStream = new MemoryStream();
+            imagen.CopyTo(memoryStream);
+            var imagenBytes = memoryStream.ToArray();
+            var imagenBase64 = Convert.ToBase64String(imagenBytes);
+
+            return _davxeShopDboHelper.GuardarImagen(id, imagenBase64);
+        }
+
+        public string ObtenerImagen(int id)
+        {
+            return _davxeShopDboHelper.ObtenerImagen(id);
         }
     }
 }

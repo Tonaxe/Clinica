@@ -2,6 +2,7 @@
 using Clinica.Models;
 using DavxeShop.Models;
 using DavxeShop.Persistance.Interfaces;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
@@ -31,6 +32,33 @@ namespace DavxeShop.Persistance
             _context.SaveChanges();
 
             return true;
+        }
+
+        public bool GuardarImagen(int id, string imagenBase64)
+        {
+            var user = _context.Usuarios.FirstOrDefault(x => x.id == id);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.Imagen = imagenBase64;
+            _context.SaveChanges();
+
+            return true;
+        }
+
+        public string ObtenerImagen(int id)
+        {
+            var user = _context.Usuarios.FirstOrDefault(x => x.id == id);
+
+            if (user == null || user.Imagen == null)
+            {
+                return null;
+            }
+
+            return user.Imagen;
         }
     }
 }

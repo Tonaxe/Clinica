@@ -28,6 +28,8 @@ export class LoginComponent {
 
       this.apiService.logIn(form).subscribe(
         (res) => {
+          sessionStorage.setItem('user', JSON.stringify(res.user));
+          console.log(sessionStorage.getItem('user'));
           this.router.navigate(['/home']);
         },
         (error) => {

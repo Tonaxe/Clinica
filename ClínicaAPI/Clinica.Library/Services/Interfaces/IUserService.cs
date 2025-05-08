@@ -1,5 +1,6 @@
 ﻿using Clinica.Models;
 using DavxeShop.Models;
+using Microsoft.AspNetCore.Http;
 using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace DavxeShop.Library.Services.Interfaces
@@ -8,5 +9,7 @@ namespace DavxeShop.Library.Services.Interfaces
     {
         Usuarios LogIn(LoginRequest loginRequest);
         bool LogOut(string request);
+        bool SubirImagen(int id, IFormFile imagen);
+        string ObtenerImagen(int id);
     }
 }
