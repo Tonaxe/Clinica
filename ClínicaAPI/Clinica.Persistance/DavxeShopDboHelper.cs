@@ -60,5 +60,22 @@ namespace DavxeShop.Persistance
 
             return user.Imagen;
         }
+
+        public List<object> ObtenerAllUsuarios()
+        {
+            var usuarios = _context.Usuarios
+                .Select(u => new
+                {
+                    u.id,
+                    u.nombre,
+                    u.apellido,
+                    u.email,
+                    u.rol,
+                    u.Imagen
+                })
+                .ToList<object>();
+
+            return usuarios;
+        }
     }
 }

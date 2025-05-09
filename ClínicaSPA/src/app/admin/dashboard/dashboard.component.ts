@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../models/logIn.model';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-dashboard',

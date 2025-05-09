@@ -7,6 +7,9 @@
 
     <div class="usuarios-list">
         <div *ngFor="let usuario of usuarios" class="usuario-card">
+            <div class="user-image">
+                <img [src]="'data:image/jpeg;base64,' + usuario.imagen" alt="{{ usuario.nombre }} {{ usuario.apellido }}" />
+            </div>
             <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
             <p><strong>Email:</strong> {{ usuario.email }}</p>
             <p><strong>Rol:</strong> {{ usuario.rol }}</p>

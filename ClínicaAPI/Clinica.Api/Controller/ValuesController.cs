@@ -82,5 +82,16 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(imagenBase64);
         }
+
+        [HttpGet("usuarios")]
+        public IActionResult ObtenerAllUsuarios()
+        {
+            var usuarios = _userService.ObtenerAllUsuarios();
+            if (usuarios == null)
+            {
+                return NotFound("No hay usuarios guardados.");
+            }
+            return Ok(new { usuarios = usuarios, message = "Usuarios devueltos exitosamente"});
+        }
     }
 }

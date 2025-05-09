@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -8,16 +10,20 @@ import { Router } from '@angular/router';
   styleUrl: './usuarios.component.css'
 })
 export class UsuariosComponent implements OnInit {
-  usuarios = [
-    { id: 1, nombre: 'Juan', apellido: 'Pérez', email: 'juan@dominio.com', rol: 'admin' },
-    { id: 2, nombre: 'María', apellido: 'Gómez', email: 'maria@dominio.com', rol: 'odontologo' },
-    { id: 3, nombre: 'Carlos', apellido: 'Sánchez', email: 'carlos@dominio.com', rol: 'odontologo' },
-  ];
 
-  constructor(private router: Router) { }
+  usuarios: User[] = [];
+
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    // Aquí podrías realizar alguna inicialización si es necesario
+    this.apiService.getAllUsers().subscribe(
+      (res) => {
+        this.usuarios = res.usuarios;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );    
   }
 
   editarUsuario(id: number): void {

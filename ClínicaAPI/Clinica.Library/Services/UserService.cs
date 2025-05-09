@@ -42,5 +42,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.ObtenerImagen(id);
         }
+
+        public List<object> ObtenerAllUsuarios()
+        {
+            return _davxeShopDboHelper.ObtenerAllUsuarios();
+        }
     }
 }
