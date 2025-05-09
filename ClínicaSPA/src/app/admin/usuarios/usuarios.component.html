@@ -1,0 +1,20 @@
+<div class="usuarios-container">
+    <h2>Lista de Usuarios</h2>
+
+    <div *ngIf="usuarios.length === 0" class="no-users">
+        <p>No hay usuarios disponibles.</p>
+    </div>
+
+    <div class="usuarios-list">
+        <div *ngFor="let usuario of usuarios" class="usuario-card">
+            <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+            <p><strong>Rol:</strong> {{ usuario.rol }}</p>
+
+            <div class="actions">
+                <button class="edit-btn" (click)="editarUsuario(usuario.id)">Editar</button>
+                <button class="delete-btn" (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

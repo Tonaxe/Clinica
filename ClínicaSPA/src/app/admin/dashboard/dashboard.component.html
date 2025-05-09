@@ -1,0 +1,49 @@
+<div class="home-container" *ngIf="user">
+    <h2>Bienvenido, {{ user.nombre }} {{ user.apellido }}</h2>
+
+    <div class="dashboard-options">
+        <!-- Opciones para ADMIN -->
+        <ng-container *ngIf="user.rol === 'admin'">
+            <div class="option-card">
+                <h3>Gestión de Usuarios</h3>
+                <a routerLink="/usuarios">Ver usuarios</a>
+            </div>
+            <div class="option-card">
+                <h3>Gestión de Odontólogos</h3>
+                <a routerLink="/odontologos">Ver odontólogos</a>
+            </div>
+            <div class="option-card">
+                <h3>Gestión de Pacientes</h3>
+                <a routerLink="/pacientes">Ver pacientes</a>
+            </div>
+            <div class="option-card">
+                <h3>Agendar Visita</h3>
+                <a routerLink="/visitas/nueva">Agendar</a>
+            </div>
+            <div class="option-card">
+                <h3>Ver Visitas</h3>
+                <a routerLink="/visitas">Ver todas</a>
+            </div>
+        </ng-container>
+
+        <!-- Opciones para ODONTÓLOGO -->
+        <ng-container *ngIf="user.rol === 'odontologo'">
+            <div class="option-card">
+                <h3>Mis Visitas</h3>
+                <a routerLink="/mis-visitas">Ver visitas</a>
+            </div>
+            <div class="option-card">
+                <h3>Registrar Observaciones</h3>
+                <a routerLink="/registrar-observacion">Registrar</a>
+            </div>
+            <div class="option-card">
+                <h3>Prescribir Tratamiento</h3>
+                <a routerLink="/prescribir-tratamiento">Prescribir</a>
+            </div>
+            <div class="option-card">
+                <h3>Agendar Visita</h3>
+                <a routerLink="/agendar-visita">Agendar</a>
+            </div>
+        </ng-container>
+    </div>
+</div>
