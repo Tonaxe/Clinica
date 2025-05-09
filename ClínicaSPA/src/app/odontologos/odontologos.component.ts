@@ -15,13 +15,12 @@ export class OdontologosComponent {
     { id: 3, nombre: 'Luis Martínez', especialidad: 'Periodoncia', horarioAtencion: 'Lunes a Viernes: 10:00 - 18:00' }
   ];
 
-  newOdontologo: Odontologo = { id: null, nombre: '', especialidad: '', horarioAtencion: '' }; // El id puede ser null inicialmente
+  newOdontologo: Odontologo = { id: null, nombre: '', especialidad: '', horarioAtencion: '' };
   showForm = false;
 
   toggleForm() {
     this.showForm = !this.showForm;
     if (!this.showForm) {
-      // Reseteamos el formulario al cerrar
       this.newOdontologo = { id: null, nombre: '', especialidad: '', horarioAtencion: '' };
     }
   }

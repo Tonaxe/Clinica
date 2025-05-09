@@ -9,8 +9,9 @@ import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 
 export class HomeComponent implements OnInit {
   user = {
-    name: 'Tonaxe Guapo',
-    role: 'admin'
+    nombre: '',
+    apellido: '',
+    rol: '',
   };
 
   stats = {
@@ -22,5 +23,13 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    const userData = sessionStorage.getItem('user');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      console.log(parsedData);
+      this.user.nombre = parsedData.nombre || 'Usuario';
+      this.user.apellido = parsedData.apellido || 'Usuario';
+      this.user.rol = parsedData.rol || 'odontologo';
+    }
   }
 }
