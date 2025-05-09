@@ -23,7 +23,7 @@ export class UsuariosComponent implements OnInit {
       (error) => {
         console.error(error);
       }
-    );    
+    );
   }
 
   editarUsuario(id: number): void {

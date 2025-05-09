@@ -12,5 +12,6 @@ namespace DavxeShop.Library.Services.Interfaces
         bool SubirImagen(int id, IFormFile imagen);
         string ObtenerImagen(int id);
         List<object> ObtenerAllUsuarios();
+        Object UsuarioPorId(int id);
     }
 }

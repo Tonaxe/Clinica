@@ -47,5 +47,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.ObtenerAllUsuarios();
         }
+
+        public Object UsuarioPorId(int id)
+        {
+            return _davxeShopDboHelper.UsuarioPorId(id);
+        }
     }
 }

@@ -93,5 +93,16 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { usuarios = usuarios, message = "Usuarios devueltos exitosamente"});
         }
+
+        [HttpGet("usuario/{id}")]
+        public IActionResult UsuarioPorId(int id)
+        {
+            var usuario = _userService.UsuarioPorId(id);
+            if (usuario == null)
+            {
+                return NotFound("No hay usuarios guardados.");
+            }
+            return Ok(new { usuario = usuario });
+        }
     }
 }

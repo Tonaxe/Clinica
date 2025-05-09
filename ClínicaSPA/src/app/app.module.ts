@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { UsuariosComponent } from './admin/usuarios/usuarios.component';
+import { UsarioEditarComponent } from './admin/usuarios/usario-editar/usario-editar.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UsuariosComponent } from './admin/usuarios/usuarios.component';
     SidebarComponent,
     DashboardComponent,
     UsuariosComponent,
+    UsarioEditarComponent,
   ],
   imports: [
     BrowserModule,

@@ -77,5 +77,22 @@ namespace DavxeShop.Persistance
 
             return usuarios;
         }
+
+        public Object UsuarioPorId(int id)
+        {
+            var usuario = _context.Usuarios.Where(x => x.id == id)
+                .Select(u => new
+                {
+                    u.id,
+                    u.nombre,
+                    u.apellido,
+                    u.email,
+                    u.rol,
+                    u.Imagen
+                })
+                .ToList<object>();
+
+            return usuario;
+        }
     }
 }

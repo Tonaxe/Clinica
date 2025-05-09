@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LogInRequest, LogInResponse } from '../models/logIn.model';
 import { AllUsersResponse } from '../models/allUsers.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,5 +24,9 @@ export class ApiService {
 
   getAllUsers(): Observable<AllUsersResponse> {
     return this.http.get<AllUsersResponse>(`${this.baseUrl}usuarios`, { headers: this.headers });
+  }
+
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}usuario/` + id, { headers: this.headers });
   }
 }
