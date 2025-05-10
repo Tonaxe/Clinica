@@ -1,0 +1,37 @@
+<div class="usuarios-container">
+  <h2>Lista de Pacientes</h2>
+
+  <div *ngIf="pacientes.length === 0" class="no-users">
+    No hay pacientes registrados.
+  </div>
+
+  <div class="add-user-container">
+    <button class="add-user-btn">Agregar Paciente</button>
+  </div>
+
+  <div class="usuarios-list" *ngIf="pacientes.length > 0">
+    <div *ngFor="let paciente of pacientes" class="usuario-card">
+      <div class="user-image">
+        <img [src]="paciente.imagen" alt="{{ paciente.nombre }}" />
+      </div>
+      <h3>{{ paciente.nombre }} {{ paciente.apellido }}</h3>
+      <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fechaNacimiento }}</p>
+      <p><strong>Teléfono:</strong> {{ paciente.telefono }}</p>
+      <p><strong>Email:</strong> {{ paciente.email }}</p>
+      <p><strong>Tipo de Pago:</strong> {{ paciente.tipoPago }}</p>
+      <p><strong>Responsable:</strong> 
+        <span *ngIf="paciente.responsable; else noResponsable">
+          {{ paciente.responsable.nombre }} ({{ paciente.responsable.parentesco }})
+        </span>
+        <ng-template #noResponsable>
+          No tiene representante
+        </ng-template>
+      </p>
+
+      <div class="actions">
+        <button class="edit-btn" (click)="editarPaciente(paciente.id)">Editar</button>
+        <button class="delete-btn" (click)="eliminarPaciente(paciente.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

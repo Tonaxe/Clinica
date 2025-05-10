@@ -125,5 +125,29 @@ namespace DavxeShop.Persistance
 
             return true;
         }
+
+        public bool CrearUsuario(RegisterRequest user)
+        {
+            try
+            {
+                var nuevoUsuario = new Usuarios
+                {
+                    nombre = user.nombre,
+                    apellido = user.apellido,
+                    email = user.email,
+                    contrasena = user.contrasena,
+                    rol = user.rol,
+                    Imagen = user.Imagen ?? ""
+                };
+
+                _context.Usuarios.Add(nuevoUsuario);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -62,5 +62,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.EliminarUsuario(id);
         }
+
+        public bool CrearUsuario(RegisterRequest user)
+        {
+            return _davxeShopDboHelper.CrearUsuario(user);
+        }
     }
 }

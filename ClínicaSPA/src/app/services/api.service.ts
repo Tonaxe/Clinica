@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { LogInRequest, LogInResponse } from '../models/logIn.model';
 import { AllUsersResponse } from '../models/allUsers.model';
 import { User } from '../models/user.model';
+import { CreateUser } from '../models/register.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,9 @@ export class ApiService {
 
   deleteUser(id: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.baseUrl}eliminarUsuario/${id}`, { headers: this.headers });
+  }
+
+  crearUsuario(user: CreateUser): Observable<boolean> {
+    return this.http.post<boolean>(`${this.baseUrl}crearUsuario`, user, { headers: this.headers });
   }
 }

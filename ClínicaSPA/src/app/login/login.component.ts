@@ -31,7 +31,7 @@ export class LoginComponent {
           sessionStorage.setItem('user', JSON.stringify(res.user));
           if (res.user.rol === 'admin') {
             this.router.navigate(['/admin/dashboard']);
-          }  
+          }
           else if (res.user.rol === 'odontologo') {
             this.router.navigate(['/odontologo/dashboard']);
           }

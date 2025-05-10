@@ -7,42 +7,25 @@
     <hr class="sidebar-separator top" />
 
     <nav class="nav">
-        <!-- Sidebar para ADMINISTRADOR -->
         <ng-container *ngIf="user.role === 'admin'">
             <ul>
                 <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
-
-                <!-- Gestión de Usuarios -->
                 <li><a routerLink="/admin/usuarios" routerLinkActive="active">Usuarios</a></li>
-                <li><a routerLink="/admin/usuarios/nuevo" routerLinkActive="active">Nuevo Usuario</a></li>
-
-                <!-- Gestión de Pacientes -->
                 <li><a routerLink="/admin/pacientes" routerLinkActive="active">Pacientes</a></li>
                 <li><a routerLink="/admin/pacientes/nuevo" routerLinkActive="active">Nuevo Paciente</a></li>
-
-                <!-- Gestión de Visitas -->
                 <li><a routerLink="/admin/visitas" routerLinkActive="active">Visitas</a></li>
                 <li><a routerLink="/admin/visitas/nueva" routerLinkActive="active">Agendar Visita</a></li>
-
-                <!-- Perfil -->
                 <li><a routerLink="/admin/perfil" routerLinkActive="active">Mi Perfil</a></li>
             </ul>
         </ng-container>
 
-        <!-- Sidebar para ODONTÓLOGO -->
         <ng-container *ngIf="user.role === 'odontologo'">
             <ul>
                 <li><a routerLink="/odontologo/dashboard" routerLinkActive="active">Dashboard</a></li>
-
-                <!-- Gestión de Visitas -->
                 <li><a routerLink="/odontologo/visitas" routerLinkActive="active">Mis Visitas</a></li>
                 <li><a routerLink="/odontologo/visitas/nueva" routerLinkActive="active">Agendar Visita</a></li>
-
-                <!-- Registro clínico -->
                 <li><a routerLink="/odontologo/observaciones" routerLinkActive="active">Registrar Observación</a></li>
                 <li><a routerLink="/odontologo/tratamientos" routerLinkActive="active">Prescribir Tratamiento</a></li>
-
-                <!-- Perfil -->
                 <li><a routerLink="/odontologo/perfil" routerLinkActive="active">Mi Perfil</a></li>
             </ul>
         </ng-container>

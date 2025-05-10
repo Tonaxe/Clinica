@@ -40,4 +40,8 @@ export class UsuariosComponent implements OnInit {
       }
     );
   }
+
+  irANuevoUsuario() {
+    this.router.navigate(['admin/usuarios/nuevo']);
+  }
 }

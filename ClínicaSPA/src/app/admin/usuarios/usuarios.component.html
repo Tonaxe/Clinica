@@ -1,6 +1,8 @@
 <div class="usuarios-container">
     <h2>Lista de Usuarios</h2>
 
+    <div class="add-user-container"><button class="add-user-btn" (click)="irANuevoUsuario()">Añadir Usuario</button></div>
+
     <div *ngIf="usuarios.length === 0" class="no-users">
         <p>No hay usuarios disponibles.</p>
     </div>

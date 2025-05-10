@@ -129,5 +129,18 @@ namespace DavxeShop.Api.Controller
 
             return Ok(new { message = $"Usuario con ID {id} eliminado correctamente." } );
         }
+
+        [HttpPost("crearUsuario")]
+        public IActionResult CrearUsuario(RegisterRequest user)
+        {
+            var registrado = _userService.CrearUsuario(user);
+
+            if (!registrado)
+            {
+                return NotFound($"No se ha creado el usuario");
+            }
+
+            return Ok(new { message = $"Se ha creado el usuario correctamente." });
+        }
     }
 }

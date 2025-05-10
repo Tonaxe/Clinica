@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
 export class SidebarComponent {
   @Input() user = {
     name: 'Usuario',
-    role: 'admin' // o 'odontologo'
+    role: 'admin'
   };
 }
