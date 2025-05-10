@@ -31,8 +31,13 @@ export class UsuariosComponent implements OnInit {
   }
 
   eliminarUsuario(id: number): void {
-    if (confirm('¿Estás seguro de eliminar este usuario?')) {
-      this.usuarios = this.usuarios.filter(usuario => usuario.id !== id);
-    }
+    this.apiService.deleteUser(id).subscribe(
+      (res) => {
+        this.usuarios = this.usuarios.filter(usuario => usuario.id !== id);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

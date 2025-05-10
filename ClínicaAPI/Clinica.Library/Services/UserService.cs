@@ -52,5 +52,15 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.UsuarioPorId(id);
         }
+
+        public bool CambiarDatosUsuario(User usuario)
+        {
+            return _davxeShopDboHelper.CambiarDatosUsuario(usuario);
+        }
+
+        public bool EliminarUsuario(int id)
+        {
+            return _davxeShopDboHelper.EliminarUsuario(id);
+        }
     }
 }

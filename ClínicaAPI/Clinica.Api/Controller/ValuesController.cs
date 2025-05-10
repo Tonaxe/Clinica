@@ -1,5 +1,6 @@
 ﻿using Clinica.Models;
 using DavxeShop.Library.Services.Interfaces;
+using DavxeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Timers;
@@ -91,7 +92,7 @@ namespace DavxeShop.Api.Controller
             {
                 return NotFound("No hay usuarios guardados.");
             }
-            return Ok(new { usuarios = usuarios, message = "Usuarios devueltos exitosamente"});
+            return Ok(new { usuarios = usuarios, message = "Usuarios devueltos exitosamente" });
         }
 
         [HttpGet("usuario/{id}")]
@@ -103,6 +104,30 @@ namespace DavxeShop.Api.Controller
                 return NotFound("No hay usuarios guardados.");
             }
             return Ok(new { usuario = usuario });
+        }
+
+        [HttpPatch("editarUsuario")]
+        public IActionResult CambiarDatosUsuario(User usuario)
+        {
+            var cambiado = _userService.CambiarDatosUsuario(usuario);
+            if (usuario == null)
+            {
+                return NotFound("No hay usuarios guardados.");
+            }
+            return Ok(new { usuario = usuario });
+        }
+
+        [HttpDelete("eliminarUsuario/{id}")]
+        public IActionResult EliminarUsuario(int id)
+        {
+            var eliminado = _userService.EliminarUsuario(id);
+
+            if (!eliminado)
+            {
+                return NotFound($"No se encontró un usuario con ID {id}.");
+            }
+
+            return Ok(new { message = $"Usuario con ID {id} eliminado correctamente." } );
         }
     }
 }

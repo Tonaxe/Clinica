@@ -1,5 +1,6 @@
 <div class="editar-usuario-container">
     <h2>Editar Usuario</h2>
+
     <form [formGroup]="userForm" (ngSubmit)="guardar()">
         <label>Nombre:</label>
         <input formControlName="nombre" type="text" />
@@ -14,13 +15,13 @@
         <select formControlName="rol">
             <option value="admin">Administrador</option>
             <option value="odontologo">Odontólogo</option>
-        </select>
+        </select>   
 
         <label>Imagen:</label>
-        <input formControlName="imagen" type="file" (change)="onImageSelected($event)" accept="image/*" />
+        <input type="file" (change)="onImageSelected($event)" accept="image/*" />
 
-        <div class="image-preview">
-            <img *ngIf="imageUrl" [src]="imageUrl" alt="Preview" />
+        <div class="image-preview" *ngIf="imageUrl">
+            <img [src]="imageUrl" alt="Vista previa" />
         </div>
 
         <div class="form-actions">

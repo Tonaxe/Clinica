@@ -29,4 +29,12 @@ export class ApiService {
   getUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}usuario/` + id, { headers: this.headers });
   }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.patch<User>(`${this.baseUrl}editarUsuario`, user, { headers: this.headers });
+  }
+
+  deleteUser(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.baseUrl}eliminarUsuario/${id}`, { headers: this.headers });
+  }
 }

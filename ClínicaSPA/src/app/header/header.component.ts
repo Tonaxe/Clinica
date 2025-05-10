@@ -21,7 +21,6 @@ export class HeaderComponent {
     const userData = sessionStorage.getItem('user');
     if (userData) {
       const parsedData = JSON.parse(userData);
-      console.log(parsedData);
       this.user.nombre = parsedData.nombre || 'Usuario';
       this.user.apellido = parsedData.apellido || 'Usuario';
       this.user.rol = parsedData.rol || 'odontologo';

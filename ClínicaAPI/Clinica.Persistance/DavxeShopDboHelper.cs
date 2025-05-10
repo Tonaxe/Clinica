@@ -94,5 +94,36 @@ namespace DavxeShop.Persistance
 
             return usuario;
         }
+
+        public bool CambiarDatosUsuario(User usuario)
+        {
+            var user = _context.Usuarios.FirstOrDefault(x => x.id == usuario.id);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.nombre = usuario.nombre;
+            user.apellido = usuario.apellido;   
+            user.email = usuario.email;
+            user.Imagen = usuario.Imagen;
+            user.rol = usuario.rol;
+            _context.SaveChanges();
+
+            return true;
+        }
+
+        public bool EliminarUsuario(int id)
+        {
+            var usuario = _context.Usuarios.Find(id);
+            if (usuario == null)
+                return false;
+
+            _context.Usuarios.Remove(usuario);
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

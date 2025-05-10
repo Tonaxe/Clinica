@@ -15,6 +15,7 @@ export class UsarioEditarComponent implements OnInit {
   userForm: FormGroup;
   userId: number;
   imageUrl: string | ArrayBuffer | null = null;
+  originalImageBase64: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,20 +35,39 @@ export class UsarioEditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
-    this.apiService.getUserById(this.userId).subscribe((res: User) => {
-      this.userForm.patchValue(res);
+    this.apiService.getUserById(this.userId).subscribe((res: any) => {
+      const user = res.usuario[0];
+      this.userForm.patchValue({
+        nombre: user.nombre || '',
+        apellido: user.apellido || '',
+        email: user.email || '',
+        rol: user.rol || '',
+        imagen: user.imagen || ''
+      });
+
+      if (user.imagen) {
+        this.originalImageBase64 = user.imagen;
+        this.imageUrl = 'data:image/jpeg;base64,' + user.imagen;
+      }
     });
   }
 
   guardar(): void {
-    // if (this.userForm.valid) {
-    //   this.apiService.updateUser(this.userId, this.userForm.value).subscribe(() => {
-    //     alert('Usuario actualizado correctamente');
-    //     this.router.navigate(['/admin/usuarios']);
-    //   });
-    // }
+    if (this.userForm.valid) {
+      const user: User = {
+        id: this.userId,
+        nombre: this.userForm.value.nombre,
+        apellido: this.userForm.value.apellido,
+        email: this.userForm.value.email,
+        rol: this.userForm.value.rol,
+        imagen: this.userForm.value.imagen,
+      };
+      this.apiService.updateUser(user).subscribe(() => {
+        this.router.navigate(['/admin/usuarios']);
+      });
+    }
   }
-  
+
   onImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input && input.files && input.files[0]) {

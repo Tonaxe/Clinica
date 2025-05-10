@@ -13,5 +13,7 @@ namespace DavxeShop.Library.Services.Interfaces
         string ObtenerImagen(int id);
         List<object> ObtenerAllUsuarios();
         Object UsuarioPorId(int id);
+        bool CambiarDatosUsuario(User usuario);
+        bool EliminarUsuario(int id);
     }
 }
