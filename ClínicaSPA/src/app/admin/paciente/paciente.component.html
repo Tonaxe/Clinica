@@ -6,27 +6,27 @@
   </div>
 
   <div class="add-user-container">
-    <button class="add-user-btn">Agregar Paciente</button>
+    <button class="add-user-btn" (click)="irANuevoPaciente()">Agregar Paciente</button>
   </div>
 
   <div class="usuarios-list" *ngIf="pacientes.length > 0">
     <div *ngFor="let paciente of pacientes" class="usuario-card">
       <div class="user-image">
-        <img [src]="paciente.imagen" alt="{{ paciente.nombre }}" />
+        <img [src]="'https://via.placeholder.com/80'" alt="{{ paciente.nombre }}" />
       </div>
       <h3>{{ paciente.nombre }} {{ paciente.apellido }}</h3>
-      <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fechaNacimiento }}</p>
       <p><strong>Teléfono:</strong> {{ paciente.telefono }}</p>
       <p><strong>Email:</strong> {{ paciente.email }}</p>
-      <p><strong>Tipo de Pago:</strong> {{ paciente.tipoPago }}</p>
-      <p><strong>Responsable:</strong> 
-        <span *ngIf="paciente.responsable; else noResponsable">
-          {{ paciente.responsable.nombre }} ({{ paciente.responsable.parentesco }})
-        </span>
-        <ng-template #noResponsable>
-          No tiene representante
-        </ng-template>
-      </p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fecha_nacimiento }}</p>
+      <p><strong>Tipo de Pago:</strong> {{ paciente.tipo_pago }}</p>
+
+      <ng-container *ngIf="paciente.responsable_id; else noResponsable">
+        <p><strong>Responsable ID:</strong> {{ paciente.responsable_id }}</p>
+      </ng-container>
+
+      <ng-template #noResponsable>
+        <p><strong>Responsable:</strong> Sin responsable</p>
+      </ng-template>
 
       <div class="actions">
         <button class="edit-btn" (click)="editarPaciente(paciente.id)">Editar</button>

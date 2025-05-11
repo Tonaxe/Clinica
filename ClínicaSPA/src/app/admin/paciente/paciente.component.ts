@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
+import { Paciente } from '../../models/paciente.model';
 
 @Component({
   selector: 'app-paciente',
@@ -8,40 +10,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrl: './paciente.component.css'
 })
 export class PacienteComponent implements OnInit {
-  
-    pacientes = [
-    {
-      id: 1,
-      nombre: 'Juan',
-      apellido: 'Pérez',
-      fechaNacimiento: '1990-06-15',
-      telefono: '123-456-789',
-      email: 'juan.perez@mail.com',
-      tipoPago: 'PARTICULAR',
-      responsable: null,
-      imagen: 'https://via.placeholder.com/80'
-    },
-    {
-      id: 2,
-      nombre: 'María',
-      apellido: 'González',
-      fechaNacimiento: '2010-03-22',
-      telefono: '987-654-321',
-      email: 'maria.gonzalez@mail.com',
-      tipoPago: 'MUTUA',
-      responsable: {
-        nombre: 'Carlos González',
-        parentesco: 'Padre',
-        telefono: '987-654-000',
-        email: 'carlos.gonzalez@mail.com'
-      },
-      imagen: 'https://via.placeholder.com/80'
-    },
-  ];
+  pacientes: Paciente[] = [];
 
-  constructor() { }
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
+    this.apiService.getAllPacientes().subscribe({
+      next: (res) => {
+        this.pacientes = res.pacientes;
+      },
+      error: (err) => {
+        console.error('Error al obtener pacientes:', err);
+      }
+    });
   }
 
   eliminarPaciente(id: number): void {
@@ -49,6 +30,10 @@ export class PacienteComponent implements OnInit {
   }
 
   editarPaciente(id: number): void {
-    console.log('Editar paciente con id:', id);
+    this.router.navigate([`/admin/pacientes/editar/${id}`]);
+  }
+
+  irANuevoPaciente(): void {
+    this.router.navigate(['/admin/pacientes/nuevo']);
   }
 }

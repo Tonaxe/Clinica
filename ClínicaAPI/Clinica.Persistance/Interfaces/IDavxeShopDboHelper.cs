@@ -10,6 +10,7 @@ namespace DavxeShop.Persistance.Interfaces
         bool GuardarImagen(int id, string imagenBase64);
         string ObtenerImagen(int id);
         List<object> ObtenerAllUsuarios();
+        List<object> ObtenerAllPacientes();
         Object UsuarioPorId(int id);
         bool CambiarDatosUsuario(User usuario);
         bool EliminarUsuario(int id);
