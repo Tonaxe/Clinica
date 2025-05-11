@@ -5,6 +5,7 @@ import { LogInRequest, LogInResponse } from '../models/logIn.model';
 import { AllUsersResponse } from '../models/allUsers.model';
 import { User } from '../models/user.model';
 import { CreateUser } from '../models/register.model';
+import { Paciente, PacienteResponse } from '../models/paciente.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +17,11 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   logIn(logInRequest: LogInRequest): Observable<LogInResponse> {
-    return this.http.post<LogInResponse>(`${this.baseUrl}login`, logInRequest);
+    return this.http.post<LogInResponse>(`${this.baseUrl}login`, logInRequest, { headers: this.headers });
   }
 
   logOut(logOutRequest: string): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}logout`, JSON.stringify(logOutRequest), { headers : this.headers });
+    return this.http.post<string>(`${this.baseUrl}logout`, JSON.stringify(logOutRequest), { headers: this.headers });
   }
 
   getAllUsers(): Observable<AllUsersResponse> {
@@ -42,4 +43,9 @@ export class ApiService {
   crearUsuario(user: CreateUser): Observable<boolean> {
     return this.http.post<boolean>(`${this.baseUrl}crearUsuario`, user, { headers: this.headers });
   }
+ 
+  getAllPacientes(): Observable<PacienteResponse> {
+  return this.http.get<PacienteResponse>(`${this.baseUrl}pacientes`, { headers: this.headers });
+}
+
 }
