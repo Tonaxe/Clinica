@@ -142,5 +142,15 @@ namespace DavxeShop.Api.Controller
 
             return Ok(new { message = $"Se ha creado el usuario correctamente." });
         }
+        [HttpGet("pacientes")]
+        public IActionResult ObtenerAllPacientes()
+        {
+            var pacientes = _userService.ObtenerAllPacientes();
+            if (pacientes == null)
+            {
+                return NotFound("No hay usuarios guardados.");
+            }
+            return Ok(new { pacientes = pacientes, message = "Usuarios devueltos exitosamente" });
+        }
     }
 }

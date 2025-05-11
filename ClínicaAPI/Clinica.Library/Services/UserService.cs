@@ -47,6 +47,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.ObtenerAllUsuarios();
         }
+        public List<object> ObtenerAllPacientes()
+        {
+            return _davxeShopDboHelper.ObtenerAllPacientes();
+        }
 
         public Object UsuarioPorId(int id)
         {
