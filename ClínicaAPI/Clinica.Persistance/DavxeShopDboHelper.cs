@@ -77,6 +77,25 @@ namespace DavxeShop.Persistance
 
             return usuarios;
         }
+        public List<object> ObtenerAllPacientes()
+        {
+            var pacientes = _context.Pacientes
+                .Select(p => new
+                {
+                    p.id,
+                    p.nombre,
+                    p.apellido,
+                    p.email,
+                    p.telefono,
+                    p.fecha_nacimiento,
+                    p.tipo_pago,
+                    p.responsable_id
+                })
+                .ToList<object>();
+
+            return pacientes;
+        }
+
 
         public Object UsuarioPorId(int id)
         {

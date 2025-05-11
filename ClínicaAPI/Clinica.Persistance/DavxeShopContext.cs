@@ -9,6 +9,8 @@ namespace DavxeShop.Persistance
 
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Pacientes> Pacientes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
