@@ -14,6 +14,7 @@ import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 import { UsarioEditarComponent } from './admin/usuarios/usario-editar/usario-editar.component';
 import { NuevoUsuarioComponent } from './admin/usuarios/nuevo-usuario/nuevo-usuario.component';
 import { PacienteComponent } from './admin/paciente/paciente.component';
+import { VisitasComponent } from './admin/visitas/visitas.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PacienteComponent } from './admin/paciente/paciente.component';
     UsuariosComponent,
     UsarioEditarComponent,
     NuevoUsuarioComponent,
-    PacienteComponent
+    PacienteComponent,
+    VisitasComponent
   ],
   imports: [
     BrowserModule,

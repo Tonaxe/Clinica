@@ -5,6 +5,7 @@ import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 import { UsarioEditarComponent } from './admin/usuarios/usario-editar/usario-editar.component';
 import { NuevoUsuarioComponent } from './admin/usuarios/nuevo-usuario/nuevo-usuario.component';
 import { PacienteComponent } from './admin/paciente/paciente.component';
+import { VisitasComponent } from './admin/visitas/visitas.component';
 
 export const routes: Routes = [
     { path: 'admin/dashboard', component: DashboardComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'admin/usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'admin/pacientes', component: PacienteComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'admin/visitas', component: VisitasComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];

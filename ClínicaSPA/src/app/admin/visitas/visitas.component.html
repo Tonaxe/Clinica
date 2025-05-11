@@ -1,0 +1,46 @@
+<div class="visitas-container">
+  <h2>Listado de Visitas</h2>
+
+  <!-- Formulario para añadir visita -->
+  <form [formGroup]="visitaForm" (ngSubmit)="agregarVisita()" class="visita-form">
+    <div class="form-row">
+      <input formControlName="paciente" placeholder="Paciente" />
+      <input formControlName="odontologo" placeholder="Odontólogo" />
+      <input formControlName="fecha" type="date" />
+    </div>
+    <div class="form-row">
+      <input formControlName="motivo" placeholder="Motivo" />
+      <input formControlName="observaciones" placeholder="Observaciones" />
+    </div>
+    <button type="submit" [disabled]="visitaForm.invalid">Añadir Visita</button>
+  </form>
+
+  <!-- Tabla de visitas -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Paciente</th>
+        <th>Odontólogo</th>
+        <th>Fecha</th>
+        <th>Motivo</th>
+        <th>Observaciones</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visita of visitas">
+        <td>{{ visita.id }}</td>
+        <td>{{ visita.paciente }}</td>
+        <td>{{ visita.odontologo }}</td>
+        <td>{{ visita.fecha }}</td>
+        <td>{{ visita.motivo }}</td>
+        <td>{{ visita.observaciones || '—' }}</td>
+        <td>
+          <button (click)="editarVisita(visita.id)">Editar</button>
+          <button (click)="eliminarVisita(visita.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
