@@ -8,6 +8,8 @@
         public string telefono { get; set; }
         public string email { get; set; }
         public string tipo_pago { get; set; }
-        public int? responsable_id { get; set; }
+        public string responsable_nombre { get; set; }
+        public string responsable_apellido { get; set; }
+        public string responsable_email { get; set; }
     }
 }

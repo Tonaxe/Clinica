@@ -172,6 +172,12 @@ namespace DavxeShop.Persistance
         {
             try
             {
+                var edad = DateTime.Now.Year - paciente.fecha_nacimiento.Year;
+                if (DateTime.Now < paciente.fecha_nacimiento.AddYears(edad)) edad--;
+
+                var responsable = edad < 18
+                    ? _context.Responsables.FirstOrDefault(x => x.nombre == paciente.responsable_nombre && x.apellido == paciente.responsable_apellido && x.email == paciente.responsable_email)?.id
+                    : 0;
                 var nuevoPaciente = new Pacientes
                 {
                     nombre = paciente.nombre,
@@ -180,7 +186,7 @@ namespace DavxeShop.Persistance
                     telefono = paciente.telefono,
                     fecha_nacimiento = paciente.fecha_nacimiento,
                     tipo_pago = paciente.tipo_pago,
-                    responsable_id = paciente.responsable_id
+                    responsable_id = responsable,
                 };
 
                 _context.Pacientes.Add(nuevoPaciente);

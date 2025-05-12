@@ -1,4 +1,5 @@
-﻿using DavxeShop.Models;
+﻿using Clinica.Models;
+using DavxeShop.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DavxeShop.Persistance
@@ -10,6 +11,7 @@ namespace DavxeShop.Persistance
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Session> Sessions { get; set; }
         public DbSet<Pacientes> Pacientes { get; set; }
+        public DbSet<Responsables> Responsables { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,6 +21,7 @@ namespace DavxeShop.Persistance
             modelBuilder.Entity<Usuarios>().HasKey(u => u.id);
             modelBuilder.Entity<Session>().HasKey(u => u.SessionId);
             modelBuilder.Entity<Pacientes>().HasKey(u => u.id);
+            modelBuilder.Entity<Responsables>().HasKey(u => u.id);
         }
     }
 }

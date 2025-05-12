@@ -27,7 +27,9 @@ export class NuevoPacienteComponent implements OnInit {
       telefono: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       tipo_pago: ['PARTICULAR', Validators.required],
-      responsable_id: [null]
+      responsable_nombre: ['', Validators.required],
+      responsable_apellido: ['', Validators.required],
+      responsable_email: ['', Validators.required],
     });
   }
 

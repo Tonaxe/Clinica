@@ -164,7 +164,5 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { message = "El paciente se ha dado de alta correctamente." });
         }
-
-
     }
 }

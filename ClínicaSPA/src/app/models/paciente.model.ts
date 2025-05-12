@@ -12,5 +12,7 @@ export interface Paciente {
   telefono: string;
   fecha_nacimiento: string;
   tipo_pago: string;
-  responsable_id?: number | null;
+  responsable_nombre: string;
+  responsable_apellido: string;
+  responsable_email: string;
 }
