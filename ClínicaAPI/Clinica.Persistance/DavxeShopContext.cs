@@ -18,6 +18,7 @@ namespace DavxeShop.Persistance
 
             modelBuilder.Entity<Usuarios>().HasKey(u => u.id);
             modelBuilder.Entity<Session>().HasKey(u => u.SessionId);
+            modelBuilder.Entity<Pacientes>().HasKey(u => u.id);
         }
     }
 }

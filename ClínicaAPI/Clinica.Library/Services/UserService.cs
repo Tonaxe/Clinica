@@ -71,5 +71,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.CrearUsuario(user);
         }
+
+        public bool CrearPaciente(AltaPacienteRequest paciente)
+        {
+            return _davxeShopDboHelper.CrearPaciente(paciente);
+        }
     }
 }

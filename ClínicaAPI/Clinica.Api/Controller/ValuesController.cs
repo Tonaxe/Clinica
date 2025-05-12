@@ -3,6 +3,7 @@ using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Timers;
 
 namespace DavxeShop.Api.Controller
@@ -152,6 +153,18 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { pacientes = pacientes, message = "Usuarios devueltos exitosamente" });
         }
+        [HttpPost("crearPaciente")]
+        public IActionResult CrearPaciente([FromBody] AltaPacienteRequest paciente)
+        {
+            var creado = _userService.CrearPaciente(paciente);
+
+            if (creado == null)
+            {
+                return NotFound("El paciente no se ha dado de alta.");
+            }
+            return Ok(new { message = "El paciente se ha dado de alta correctamente." });
+        }
+
 
     }
 }

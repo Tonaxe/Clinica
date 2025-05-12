@@ -15,5 +15,6 @@ namespace DavxeShop.Persistance.Interfaces
         bool CambiarDatosUsuario(User usuario);
         bool EliminarUsuario(int id);
         bool CrearUsuario(RegisterRequest user);
+        bool CrearPaciente(AltaPacienteRequest paciente);
     }
 }

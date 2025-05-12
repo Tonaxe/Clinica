@@ -168,5 +168,30 @@ namespace DavxeShop.Persistance
                 return false;
             }
         }
+        public bool CrearPaciente(AltaPacienteRequest paciente)
+        {
+            try
+            {
+                var nuevoPaciente = new Pacientes
+                {
+                    nombre = paciente.nombre,
+                    apellido = paciente.apellido,
+                    email = paciente.email,
+                    telefono = paciente.telefono,
+                    fecha_nacimiento = paciente.fecha_nacimiento,
+                    tipo_pago = paciente.tipo_pago,
+                    responsable_id = paciente.responsable_id
+                };
+
+                _context.Pacientes.Add(nuevoPaciente);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
