@@ -36,5 +36,4 @@ export class PacienteComponent implements OnInit {
   irANuevoPaciente(): void {
     this.router.navigate(['/admin/pacientes/nuevo-paciente']);
   }
-  
 }

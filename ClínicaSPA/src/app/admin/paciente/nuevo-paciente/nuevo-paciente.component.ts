@@ -17,7 +17,7 @@ export class NuevoPacienteComponent implements OnInit {
     private fb: FormBuilder,
     private apiService: ApiService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.pacienteForm = this.fb.group({
@@ -36,20 +36,17 @@ export class NuevoPacienteComponent implements OnInit {
       const nuevoPaciente: Paciente = this.pacienteForm.value;
       this.apiService.crearPaciente(nuevoPaciente).subscribe({
         next: () => {
-          alert('Paciente creado exitosamente');
-          this.router.navigate(['/pacientes']);
+          this.router.navigate(['admin/pacientes']);
         },
         error: (err) => {
           console.error('Error al crear paciente:', err);
-          alert('Ocurrió un error al crear el paciente.');
         }
       });
     } else {
-      alert('Por favor completa todos los campos requeridos.');
     }
   }
 
   cancelar(): void {
-    this.router.navigate(['/pacientes']);
+    this.router.navigate(['admin/pacientes']);
   }
 }

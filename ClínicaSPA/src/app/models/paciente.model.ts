@@ -14,4 +14,3 @@ export interface Paciente {
   tipo_pago: string;
   responsable_id?: number | null;
 }
-
