@@ -8,6 +8,7 @@ import { PacienteComponent } from './admin/paciente/paciente.component';
 import { VisitasComponent } from './admin/visitas/visitas.component';
 import { NuevoPacienteComponent } from './admin/paciente/nuevo-paciente/nuevo-paciente.component';
 import { PerfilComponent } from './admin/perfil/perfil.component';
+import { PacienteEditarComponent } from './admin/paciente/paciente-editar/paciente-editar.component';
 
 export const routes: Routes = [
     { path: 'admin/dashboard', component: DashboardComponent },
@@ -15,6 +16,7 @@ export const routes: Routes = [
     { path: 'admin/usuarios/editar/:id', component: UsarioEditarComponent },
     { path: 'admin/usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'admin/pacientes', component: PacienteComponent },
+    { path: 'admin/pacientes/editar/:id', component: PacienteEditarComponent },
     { path: 'login', component: LoginComponent },
     { path: 'admin/visitas', component: VisitasComponent },
     {path: 'admin/pacientes/nuevo-paciente', component: NuevoPacienteComponent},

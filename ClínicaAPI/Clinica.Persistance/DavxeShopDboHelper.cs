@@ -213,5 +213,58 @@ namespace DavxeShop.Persistance
 
             return true;
         }
+
+        public Object PacientePorId(int id)
+        {
+            var paciente = (from p in _context.Pacientes
+                            join r in _context.Responsables on p.responsable_id equals r.id
+                            where p.id == id
+                            select new
+                            {
+                                p.id,
+                                p.nombre,
+                                p.apellido,
+                                p.email,
+                                p.fecha_nacimiento,
+                                p.telefono,
+                                p.tipo_pago,
+                                responsable_nombre = r.nombre,
+                                responsable_apellido = r.apellido,
+                                responsable_email = r.email,
+                                p.imagen
+                            }).ToList<object>();
+
+            return paciente;
+        }
+
+
+        public bool CambiarDatosPaciente(EditarPaciente pacientes)
+        {
+            var edad = DateTime.Now.Year - pacientes.fecha_nacimiento.Year;
+            if (DateTime.Now < pacientes.fecha_nacimiento.AddYears(edad)) edad--;
+
+            var responsable = edad < 18
+                ? _context.Responsables.FirstOrDefault(x => x.nombre == pacientes.responsable_nombre && x.apellido == pacientes.responsable_apellido && x.email == pacientes.responsable_email)?.id
+                : 0;
+
+            var user = _context.Pacientes.FirstOrDefault(x => x.id == pacientes.id);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.nombre = pacientes.nombre;
+            user.apellido = pacientes.apellido;
+            user.email = pacientes.email;
+            user.fecha_nacimiento = pacientes.fecha_nacimiento;
+            user.telefono = pacientes.email;
+            user.tipo_pago = pacientes.email;
+            user.responsable_id = responsable;
+            user.imagen = pacientes.imagen;
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

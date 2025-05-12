@@ -111,7 +111,7 @@ namespace DavxeShop.Api.Controller
         public IActionResult CambiarDatosUsuario(User usuario)
         {
             var cambiado = _userService.CambiarDatosUsuario(usuario);
-            if (usuario == null)
+            if (cambiado == null)
             {
                 return NotFound("No hay usuarios guardados.");
             }
@@ -179,5 +179,26 @@ namespace DavxeShop.Api.Controller
             return Ok(new { message = $"El paciente con ID {id} ha sido eliminado correctamente." });
         }
 
+        [HttpGet("paciente/{id}")]
+        public IActionResult PacientePorId(int id)
+        {
+            var usuario = _userService.PacientePorId(id);
+            if (usuario == null)
+            {
+                return NotFound("No hay usuarios guardados.");
+            }
+            return Ok(new { pacientes = usuario });
+        }
+
+        [HttpPatch("editarPaciente")]
+        public IActionResult CambiarDatosPaciente(EditarPaciente paciente)
+        {
+            var cambiado = _userService.CambiarDatosPaciente(paciente);
+            if (paciente == null)
+            {
+                return NotFound("No hay usuarios guardados.");
+            }
+            return Ok(new { pacientes = paciente });
+        }
     }
 }

@@ -19,5 +19,7 @@ namespace DavxeShop.Library.Services.Interfaces
         bool CrearUsuario(RegisterRequest user);
         bool CrearPaciente(AltaPacienteRequest paciente);
         bool EliminarPaciente(int id);
+        Object PacientePorId(int id);
+        bool CambiarDatosPaciente(EditarPaciente pacientes);
     }
 }

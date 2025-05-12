@@ -55,4 +55,12 @@ export class ApiService {
   deletePaciente(id: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.baseUrl}eliminarPaciente/${id}`, { headers: this.headers });
   }
+
+  getPacienteById(id: number): Observable<Paciente> {
+    return this.http.get<Paciente>(`${this.baseUrl}paciente/` + id, { headers: this.headers });
+  }
+
+  updatePaciente(user: Paciente): Observable<Paciente> {
+    return this.http.patch<Paciente>(`${this.baseUrl}editarPaciente`, user, { headers: this.headers });
+  }
 }

@@ -1,0 +1,54 @@
+<div class="nuevo-paciente-container">
+  <h2>Editar Paciente</h2>
+  <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+
+    <label>Nombre:</label>
+    <input formControlName="nombre" type="text" />
+
+    <label>Apellido:</label>
+    <input formControlName="apellido" type="text" />
+
+    <label>Fecha de Nacimiento:</label>
+    <input formControlName="fecha_nacimiento" type="date" />
+
+    <label>Teléfono:</label>
+    <input formControlName="telefono" type="number" />
+
+    <label>Email:</label>
+    <input formControlName="email" type="email" />
+
+    <label>Tipo de Pago:</label>
+    <select formControlName="tipo_pago">
+      <option value="PARTICULAR">Particular</option>
+      <option value="MUTUA">Mutua</option>
+    </select>
+
+    <label>¿El paciente es menor de edad?</label>
+    <input type="checkbox" formControlName="esMenorEdad" class="start" />
+
+    <div *ngIf="pacienteForm.get('esMenorEdad')?.value" class="responsable-container">
+      <div class="responsable-fields">
+        <label>Nombre del responsable:</label>
+        <input formControlName="responsable_nombre" type="text" />
+
+        <label>Apellido del responsable:</label>
+        <input formControlName="responsable_apellido" type="text" />
+
+        <label>Email del responsable:</label>
+        <input formControlName="responsable_email" type="email" />
+      </div>
+    </div>
+
+    <label>Imagen:</label>
+    <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+
+    <div class="image-preview" *ngIf="imageUrl">
+      <img [src]="imageUrl" alt="Vista previa" />
+    </div>
+
+    <div class="botones">
+      <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
+      <button type="submit" [disabled]="pacienteForm.invalid">Guardar</button>
+    </div>
+  </form>
+</div>

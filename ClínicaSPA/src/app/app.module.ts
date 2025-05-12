@@ -17,6 +17,7 @@ import { PacienteComponent } from './admin/paciente/paciente.component';
 import { VisitasComponent } from './admin/visitas/visitas.component';
 import { NuevoPacienteComponent } from './admin/paciente/nuevo-paciente/nuevo-paciente.component';
 import { PerfilComponent } from './admin/perfil/perfil.component';
+import { PacienteEditarComponent } from './admin/paciente/paciente-editar/paciente-editar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PerfilComponent } from './admin/perfil/perfil.component';
     PacienteComponent,
     VisitasComponent,
     NuevoPacienteComponent,
-    PerfilComponent
+    PerfilComponent,
+    PacienteEditarComponent
   ],
   imports: [
     BrowserModule,

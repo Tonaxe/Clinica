@@ -81,5 +81,15 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.EliminarPaciente(id);
         }
+
+        public Object PacientePorId(int id)
+        {
+            return _davxeShopDboHelper.PacientePorId(id);
+        }
+
+        public bool CambiarDatosPaciente(EditarPaciente pacientes)
+        {
+            return _davxeShopDboHelper.CambiarDatosPaciente(pacientes);
+        }
     }
 }
