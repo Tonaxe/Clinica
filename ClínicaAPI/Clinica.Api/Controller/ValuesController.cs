@@ -152,5 +152,6 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { pacientes = pacientes, message = "Usuarios devueltos exitosamente" });
         }
+
     }
 }

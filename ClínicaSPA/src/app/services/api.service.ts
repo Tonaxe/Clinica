@@ -46,6 +46,12 @@ export class ApiService {
  
   getAllPacientes(): Observable<PacienteResponse> {
   return this.http.get<PacienteResponse>(`${this.baseUrl}pacientes`, { headers: this.headers });
+  }
+ crearPaciente(paciente: Paciente): Observable<boolean> {
+  return this.http.post<boolean>(`${this.baseUrl}crearPaciente`, paciente, {
+    headers: this.headers,
+  });
 }
+
 
 }

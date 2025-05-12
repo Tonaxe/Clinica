@@ -5,12 +5,13 @@ export interface PacienteResponse {
 
 
 export interface Paciente {
-  id: number;
+  id?: number;
   nombre: string;
   apellido: string;
   email: string;
   telefono: string;
   fecha_nacimiento: string;
   tipo_pago: string;
-  responsable_id: number;
+  responsable_id?: number | null;
 }
+
