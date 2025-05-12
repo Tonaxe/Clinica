@@ -1,2 +1,38 @@
-<p>perfil works!</p>
-    
+<div class="perfil-container" *ngIf="usuario">
+    <h2>Mi Perfil</h2>
+
+    <div class="perfil-info">
+        <div class="perfil-imagen">
+            <img *ngIf="usuario.imagen" [src]="'data:image/jpeg;base64,' + usuario.imagen" alt="Foto de perfil" />
+            <label *ngIf="editando" class="cambiar-imagen-btn">
+                Cambiar imagen
+                <input type="file" (change)="onFileSelected($event)" hidden />
+            </label>
+        </div>
+
+        <div class="perfil-campos">
+            <label>
+                Nombre:
+                <input type="text" [(ngModel)]="usuario.nombre" [readonly]="!editando" />
+            </label>
+            <label>
+                Apellido:
+                <input type="text" [(ngModel)]="usuario.apellido" [readonly]="!editando" />
+            </label>
+            <label>
+                Email:
+                <input type="email" [(ngModel)]="usuario.email" [readonly]="!editando" />
+            </label>
+            <label>
+                Rol:
+                <input type="text" [(ngModel)]="usuario.rol" readonly />
+            </label>
+        </div>
+    </div>
+
+    <div class="perfil-acciones">
+        <button *ngIf="!editando" (click)="editando = true">Editar</button>
+        <button *ngIf="editando" class="guardar" (click)="guardarCambios()">Guardar</button>
+        <button *ngIf="editando" class="cancelar" (click)="editando = false">Cancelar</button>
+    </div>
+</div>

@@ -2,7 +2,6 @@
     <h2>Bienvenido, {{ user.nombre }} {{ user.apellido }}</h2>
 
     <div class="dashboard-options">
-        <!-- Opciones para ADMIN -->
         <ng-container *ngIf="user.rol === 'admin'">
             <div class="option-card">
                 <h3>Gestión de Usuarios</h3>
@@ -26,7 +25,6 @@
             </div>
         </ng-container>
 
-        <!-- Opciones para ODONTÓLOGO -->
         <ng-container *ngIf="user.rol === 'odontologo'">
             <div class="option-card">
                 <h3>Mis Visitas</h3>

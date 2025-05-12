@@ -12,7 +12,7 @@
     <input formControlName="fecha_nacimiento" type="date" />
 
     <label>Teléfono:</label>
-    <input formControlName="telefono" type="text" />
+    <input formControlName="telefono" type="number" />
 
     <label>Email:</label>
     <input formControlName="email" type="email" />
@@ -23,14 +23,28 @@
       <option value="MUTUA">Mutua</option>
     </select>
 
-    <label>Nombre del responsable:</label>
-    <input formControlName="responsable_nombre" type="text" />
+    <label>El paciente es menor de edad</label>
+    <input type="checkbox" formControlName="esMenorEdad" class="start" />
 
-    <label>Apellido del responsable:</label>
-    <input formControlName="responsable_apellido" type="text" />
+    <div *ngIf="pacienteForm.get('esMenorEdad')?.value" class="responsable-container">
+      <div class="responsable-fields">
+        <label>Nombre del responsable:</label>
+        <input formControlName="responsable_nombre" type="text" />
 
-    <label>Email del responsable:</label>
-    <input formControlName="responsable_email" type="text" />
+        <label>Apellido del responsable:</label>
+        <input formControlName="responsable_apellido" type="text" />
+
+        <label>Email del responsable:</label>
+        <input formControlName="responsable_email" type="text" />
+      </div>
+    </div>
+
+    <label>Imagen:</label>
+    <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+
+    <div class="image-preview" *ngIf="imageUrl">
+      <img [src]="imageUrl" alt="Vista previa" />
+    </div>
 
     <div class="botones">
       <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>

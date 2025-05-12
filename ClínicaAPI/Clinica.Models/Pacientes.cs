@@ -12,5 +12,6 @@ namespace DavxeShop.Models
         public string email { get; set; }
         public string tipo_pago { get; set; }
         public int? responsable_id { get; set; }
+        public string imagen { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 <div class="visitas-container">
   <h2>Listado de Visitas</h2>
 
-  <!-- Formulario para añadir visita -->
   <form [formGroup]="visitaForm" (ngSubmit)="agregarVisita()" class="visita-form">
     <div class="form-row">
       <input formControlName="paciente" placeholder="Paciente" />
@@ -15,7 +14,6 @@
     <button type="submit" [disabled]="visitaForm.invalid">Añadir Visita</button>
   </form>
 
-  <!-- Tabla de visitas -->
   <table>
     <thead>
       <tr>

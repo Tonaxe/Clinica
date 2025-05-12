@@ -2,23 +2,18 @@
   <h2>Crear Nuevo Usuario</h2>
 
   <form [formGroup]="userForm" (ngSubmit)="guardar()">
-    <!-- Nombre -->
     <label>Nombre:</label>
     <input formControlName="nombre" type="text" />
 
-    <!-- Apellido -->
     <label>Apellido:</label>
     <input formControlName="apellido" type="text" />
 
-    <!-- E-mail -->
     <label>Email:</label>
     <input formControlName="email" type="email" />
 
-    <!-- Contraseña -->
     <label>Contraseña:</label>
     <input formControlName="contrasena" type="password" />
 
-    <!-- Rol -->
     <label>Rol:</label>
     <select formControlName="rol">
       <option value="" disabled selected>Selecciona un rol</option>
@@ -26,7 +21,6 @@
       <option value="odontologo">Odontólogo</option>
     </select>
 
-    <!-- Imagen -->
     <label>Imagen (opcional):</label>
     <input type="file" accept="image/*" (change)="onImageSelected($event)" />
 
@@ -34,7 +28,6 @@
       <img [src]="imageUrl" alt="Vista previa" />
     </div>
 
-    <!-- Botones -->
     <div class="form-actions">
       <button type="button" class="cancel-btn" (click)="cancelar()">
         Cancelar

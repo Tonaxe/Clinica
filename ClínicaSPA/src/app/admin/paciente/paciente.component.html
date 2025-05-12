@@ -12,7 +12,7 @@
   <div class="usuarios-list" *ngIf="pacientes.length > 0">
     <div *ngFor="let paciente of pacientes" class="usuario-card">
       <div class="user-image">
-        <img [src]="'https://via.placeholder.com/80'" alt="{{ paciente.nombre }}" />
+        <img [src]="'data:image/jpeg;base64,' + paciente.imagen" alt="{{ paciente.nombre }} {{ paciente.apellido }}" />
       </div>
       <h3>{{ paciente.nombre }} {{ paciente.apellido }}</h3>
       <p><strong>Teléfono:</strong> {{ paciente.telefono }}</p>

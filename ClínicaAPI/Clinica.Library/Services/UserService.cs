@@ -76,5 +76,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.CrearPaciente(paciente);
         }
+
+        public bool EliminarPaciente(int id)
+        {
+            return _davxeShopDboHelper.EliminarPaciente(id);
+        }
     }
 }

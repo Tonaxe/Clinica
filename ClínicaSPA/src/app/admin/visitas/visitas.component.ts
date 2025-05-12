@@ -22,7 +22,6 @@ export class VisitasComponent implements OnInit {
       observaciones: ['']
     });
 
-    // Datos simulados
     this.visitas = [
       {
         id: 1,

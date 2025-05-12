@@ -153,6 +153,7 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { pacientes = pacientes, message = "Usuarios devueltos exitosamente" });
         }
+
         [HttpPost("crearPaciente")]
         public IActionResult CrearPaciente([FromBody] AltaPacienteRequest paciente)
         {
@@ -164,5 +165,19 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { message = "El paciente se ha dado de alta correctamente." });
         }
+
+        [HttpDelete("eliminarPaciente/{id}")]
+        public IActionResult EliminarPaciente(int id)
+        {
+            var eliminado = _userService.EliminarPaciente(id);
+
+            if (!eliminado)
+            {
+                return NotFound($"No se encontró el paciente con ID {id}.");
+            }
+
+            return Ok(new { message = $"El paciente con ID {id} ha sido eliminado correctamente." });
+        }
+
     }
 }

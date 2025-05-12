@@ -10,9 +10,9 @@ import { Paciente } from '../../models/paciente.model';
   styleUrl: './paciente.component.css'
 })
 export class PacienteComponent implements OnInit {
-  pacientes: Paciente[] = [];
+  pacientes: any[] = [];
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.apiService.getAllPacientes().subscribe({
@@ -26,7 +26,14 @@ export class PacienteComponent implements OnInit {
   }
 
   eliminarPaciente(id: number): void {
-    this.pacientes = this.pacientes.filter(paciente => paciente.id !== id);
+    this.apiService.deletePaciente(id).subscribe(
+      (res) => {
+        this.pacientes = this.pacientes.filter(paciente => paciente.id !== id);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   editarPaciente(id: number): void {

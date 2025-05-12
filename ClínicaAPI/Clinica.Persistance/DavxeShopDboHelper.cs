@@ -89,7 +89,8 @@ namespace DavxeShop.Persistance
                     p.telefono,
                     p.fecha_nacimiento,
                     p.tipo_pago,
-                    p.responsable_id
+                    p.responsable_id,
+                    p.imagen,
                 })
                 .ToList<object>();
 
@@ -187,6 +188,7 @@ namespace DavxeShop.Persistance
                     fecha_nacimiento = paciente.fecha_nacimiento,
                     tipo_pago = paciente.tipo_pago,
                     responsable_id = responsable,
+                    imagen = paciente.imagen,
                 };
 
                 _context.Pacientes.Add(nuevoPaciente);
@@ -198,6 +200,18 @@ namespace DavxeShop.Persistance
             {
                 return false;
             }
+        }
+
+        public bool EliminarPaciente(int id)
+        {
+            var paciente = _context.Pacientes.Find(id);
+            if (paciente == null)
+                return false;
+
+            _context.Pacientes.Remove(paciente);
+            _context.SaveChanges();
+
+            return true;
         }
     }
 }

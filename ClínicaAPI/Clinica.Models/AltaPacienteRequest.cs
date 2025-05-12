@@ -11,5 +11,6 @@
         public string responsable_nombre { get; set; }
         public string responsable_apellido { get; set; }
         public string responsable_email { get; set; }
+        public string imagen { get; set; }
     }
 }

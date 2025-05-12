@@ -49,8 +49,10 @@ export class ApiService {
   }
 
   crearPaciente(paciente: Paciente): Observable<boolean> {
-  return this.http.post<boolean>(`${this.baseUrl}crearPaciente`, paciente, {
-    headers: this.headers,
-  });
+  return this.http.post<boolean>(`${this.baseUrl}crearPaciente`, paciente, {headers: this.headers,});
+  }
+
+  deletePaciente(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.baseUrl}eliminarPaciente/${id}`, { headers: this.headers });
   }
 }

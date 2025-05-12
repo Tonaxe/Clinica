@@ -15,4 +15,5 @@ export interface Paciente {
   responsable_nombre: string;
   responsable_apellido: string;
   responsable_email: string;
+  imagen: string;
 }
