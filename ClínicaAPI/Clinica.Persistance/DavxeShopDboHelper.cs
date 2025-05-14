@@ -305,5 +305,16 @@ namespace DavxeShop.Persistance
 
             return visitas;
         }
+        public bool EliminarVisita(int id)
+        {
+            var visita = _context.Visitas.Find(id);
+            if (visita == null)
+                return false;
+
+            _context.Visitas.Remove(visita);
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

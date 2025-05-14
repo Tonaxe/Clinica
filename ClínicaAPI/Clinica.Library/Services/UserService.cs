@@ -91,5 +91,9 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.ObtenerAllVisitas();
         }
+        public bool EliminarVisita(int id)
+        {
+            return _davxeShopDboHelper.EliminarVisita(id);
+        }
     }
 }

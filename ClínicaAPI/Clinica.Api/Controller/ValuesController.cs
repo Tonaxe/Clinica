@@ -188,5 +188,18 @@ namespace DavxeShop.Api.Controller
             }
             return Ok(new { visitas = visitas, message = "Viistas devueltas exitosamente" });
         }
+
+        [HttpDelete("visitas/{id}")]
+        public IActionResult EliminarVisita(int id)
+        {
+            var eliminado = _userService.EliminarVisita(id);
+
+            if (!eliminado)
+            {
+                return NotFound($"No se encontró la visita con ID {id}.");
+            }
+
+            return Ok(new { message = $"La visita con ID {id} ha sido eliminado correctamente." });
+        }
     }
 }
