@@ -21,5 +21,6 @@ namespace DavxeShop.Library.Services.Interfaces
         bool CambiarDatosPaciente(EditarPaciente pacientes);
         List<object> ObtenerAllVisitas();
         bool EliminarVisita(int id);
+        bool EditarVisita(int id, Visita visita);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Clinica.Models;
+using Clinica.Models.dbModels;
 using DavxeShop.Library.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -200,6 +201,18 @@ namespace DavxeShop.Api.Controller
             }
 
             return Ok(new { message = $"La visita con ID {id} ha sido eliminado correctamente." });
+        }
+
+        [HttpPut("visitas/{id}")]
+        public IActionResult EditarVisita(int id, [FromBody] Visita visita)
+        {
+            var editado = _userService.EditarVisita(id, visita);
+            if (!editado) 
+            {
+                return NotFound(new { message = "Visita no encontrada" });
+            }
+
+            return Ok(new { message = "Visita actualizada correctamente" });
         }
     }
 }

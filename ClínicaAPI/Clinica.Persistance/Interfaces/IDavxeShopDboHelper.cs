@@ -20,5 +20,6 @@ namespace DavxeShop.Persistance.Interfaces
         bool CambiarDatosPaciente(EditarPaciente pacientes);
         List<object> ObtenerAllVisitas();
         bool EliminarVisita(int id);
+        bool EditarVisita(int id, Visita visitaActualizada);
     }
 }

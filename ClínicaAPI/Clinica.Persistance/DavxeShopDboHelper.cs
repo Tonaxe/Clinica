@@ -316,5 +316,33 @@ namespace DavxeShop.Persistance
 
             return true;
         }
+
+        public bool EditarVisita(int id, Visita visitaActualizada)
+        {
+            try
+            {
+                var visita = _context.Visitas
+                    .Include(v => v.Paciente)
+                    .Include(v => v.Odontologo)
+                    .FirstOrDefault(v => v.id == id);
+
+                if (visita == null)
+                    return false;
+
+                visita.fecha_hora = visitaActualizada.fecha_hora;
+                visita.motivo = visitaActualizada.motivo;
+                visita.observaciones = visitaActualizada.observaciones;
+                visita.tratamiento_prescrito = visitaActualizada.tratamiento_prescrito;
+                visita.paciente_id = visitaActualizada.paciente_id;
+                visita.odontologo_id = visitaActualizada.odontologo_id;
+
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

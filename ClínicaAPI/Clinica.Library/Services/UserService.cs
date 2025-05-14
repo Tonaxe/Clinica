@@ -95,5 +95,9 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.EliminarVisita(id);
         }
+        public bool EditarVisita(int id, Visita visita)
+        {
+            return _davxeShopDboHelper.EditarVisita(id, visita);
+        }
     }
 }
