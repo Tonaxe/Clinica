@@ -20,77 +20,77 @@ namespace DavxeShop.Persistance
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Usuario>()
-                .HasKey(u => u.Id);
+                .HasKey(u => u.id);
 
             modelBuilder.Entity<Usuario>()
-                .HasIndex(u => u.Email)
+                .HasIndex(u => u.email)
                 .IsUnique();
 
             modelBuilder.Entity<Usuario>()
-                .Property(u => u.Rol)
+                .Property(u => u.rol)
                 .HasConversion<string>();
 
             modelBuilder.Entity<Usuario>()
                 .HasOne(u => u.Administrativo)
                 .WithOne(a => a.Usuario)
-                .HasForeignKey<Administrativo>(a => a.UsuarioId)
+                .HasForeignKey<Administrativo>(a => a.usuario_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Usuario>()
                 .HasOne(u => u.Odontologo)
                 .WithOne(o => o.Usuario)
-                .HasForeignKey<Odontologo>(o => o.UsuarioId)
+                .HasForeignKey<Odontologo>(o => o.usuario_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Administrativo>()
-                .HasKey(a => a.Id);
+                .HasKey(a => a.id);
 
             modelBuilder.Entity<Odontologo>()
-                .HasKey(o => o.Id);
+                .HasKey(o => o.id);
 
             modelBuilder.Entity<Odontologo>()
                 .HasMany(o => o.Horarios)
                 .WithOne(h => h.Odontologo)
-                .HasForeignKey(h => h.OdontologoId)
+                .HasForeignKey(h => h.odontologo_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Odontologo>()
                 .HasMany(o => o.Visitas)
                 .WithOne(v => v.Odontologo)
-                .HasForeignKey(v => v.OdontologoId)
+                .HasForeignKey(v => v.odontologo_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Horario>()
-                .HasKey(h => h.Id);
+                .HasKey(h => h.id);
 
             modelBuilder.Entity<Paciente>()
-                .HasKey(p => p.Id);
+                .HasKey(p => p.id);
 
             modelBuilder.Entity<Paciente>()
-                .HasIndex(p => p.Email)
+                .HasIndex(p => p.email)
                 .IsUnique();
 
             modelBuilder.Entity<Paciente>()
                 .HasOne(p => p.Responsable)
                 .WithMany(r => r.Pacientes)
-                .HasForeignKey(p => p.ResponsableId)
+                .HasForeignKey(p => p.responsable_id)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Paciente>()
                 .HasMany(p => p.Visitas)
                 .WithOne(v => v.Paciente)
-                .HasForeignKey(v => v.PacienteId)
+                .HasForeignKey(v => v.paciente_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Responsable>()
-                .HasKey(r => r.Id);
+                .HasKey(r => r.id);
 
             modelBuilder.Entity<Responsable>()
-                .HasIndex(r => r.Email)
+                .HasIndex(r => r.email)
                 .IsUnique();
 
             modelBuilder.Entity<Visita>()
-                .HasKey(v => v.Id);
+                .HasKey(v => v.id);
         }
     }
 }

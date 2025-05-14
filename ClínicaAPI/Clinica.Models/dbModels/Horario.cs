@@ -2,11 +2,11 @@
 {
     public class Horario
     {
-        public int Id { get; set; }
-        public int? OdontologoId { get; set; }
-        public string Dia { get; set; } = null!;
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFin { get; set; }
+        public int id { get; set; }
+        public int? odontologo_id { get; set; }
+        public string dia { get; set; } = null!;
+        public TimeSpan hora_inicio { get; set; }
+        public TimeSpan hora_fin { get; set; }
 
         public virtual Odontologo? Odontologo { get; set; }
     }

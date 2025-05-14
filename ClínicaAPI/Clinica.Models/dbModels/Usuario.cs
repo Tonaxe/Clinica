@@ -2,12 +2,12 @@
 {
     public class Usuario
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; } = null!;
-        public string Apellido { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public string Contrasena { get; set; } = null!;
-        public string Rol { get; set; } = null!;
+        public int id { get; set; }
+        public string nombre { get; set; } = null!;
+        public string apellido { get; set; } = null!;
+        public string email { get; set; } = null!;
+        public string contrasena { get; set; } = null!;
+        public string rol { get; set; } = null!;
         public string? Imagen { get; set; }
 
         public virtual Administrativo? Administrativo { get; set; }

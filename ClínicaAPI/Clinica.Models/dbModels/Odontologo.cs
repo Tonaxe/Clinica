@@ -2,10 +2,10 @@
 {
     public class Odontologo
     {
-        public int Id { get; set; }
-        public int? UsuarioId { get; set; }
-        public string? Especialidad { get; set; }
-        public string? HorarioAtencion { get; set; }
+        public int id { get; set; }
+        public int? usuario_id { get; set; }
+        public string? especialidad { get; set; }
+        public string? horario_atencion { get; set; }
 
         public virtual Usuario? Usuario { get; set; }
         public virtual ICollection<Horario> Horarios { get; set; } = new List<Horario>();

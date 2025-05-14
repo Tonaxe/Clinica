@@ -2,9 +2,9 @@
 {
     public class Administrativo
     {
-        public int Id { get; set; }
-        public int? UsuarioId { get; set; }
-        public string? Puesto { get; set; }
+        public int id { get; set; }
+        public int? usuario_id { get; set; }
+        public string? puesto { get; set; }
 
         public virtual Usuario? Usuario { get; set; }
     }

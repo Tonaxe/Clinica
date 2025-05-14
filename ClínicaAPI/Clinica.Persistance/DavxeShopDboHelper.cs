@@ -14,12 +14,12 @@ namespace DavxeShop.Persistance
         }
         public Usuario LogIn(LoginRequest loginRequest)
         {
-            return _context.Usuarios.FirstOrDefault(x => x.Email == loginRequest.Email && x.Contrasena == loginRequest.Password);
+            return _context.Usuarios.FirstOrDefault(x => x.email == loginRequest.Email && x.contrasena == loginRequest.Password);
         }
 
         public bool GuardarImagen(int id, string imagenBase64)
         {
-            var user = _context.Usuarios.FirstOrDefault(x => x.Id == id);
+            var user = _context.Usuarios.FirstOrDefault(x => x.id == id);
 
             if (user == null)
             {
@@ -34,7 +34,7 @@ namespace DavxeShop.Persistance
 
         public string ObtenerImagen(int id)
         {
-            var user = _context.Usuarios.FirstOrDefault(x => x.Id == id);
+            var user = _context.Usuarios.FirstOrDefault(x => x.id == id);
 
             if (user == null || user.Imagen == null)
             {
@@ -49,11 +49,11 @@ namespace DavxeShop.Persistance
             var usuarios = _context.Usuarios
                 .Select(u => new
                 {
-                    u.Id,
-                    u.Nombre,
-                    u.Apellido,
-                    u.Email,
-                    u.Rol,
+                    u.id,
+                    u.nombre,
+                    u.apellido,
+                    u.email,
+                    u.rol,
                     u.Imagen
                 })
                 .ToList<object>();
@@ -65,14 +65,14 @@ namespace DavxeShop.Persistance
             var pacientes = _context.Pacientes
                 .Select(p => new
                 {
-                    p.Id,
-                    p.Nombre,
-                    p.Apellido,
-                    p.Email,
-                    p.Telefono,
-                    p.FechaNacimiento,
-                    p.TipoPago,
-                    p.ResponsableId,
+                    p.id,
+                    p.nombre,
+                    p.apellido,
+                    p.email,
+                    p.telefono,
+                    p.fecha_nacimiento,
+                    p.tipo_pago,
+                    p.responsable_id,
                     p.Imagen,
                 })
                 .ToList<object>();
@@ -83,14 +83,14 @@ namespace DavxeShop.Persistance
 
         public Object UsuarioPorId(int id)
         {
-            var usuario = _context.Usuarios.Where(x => x.Id == id)
+            var usuario = _context.Usuarios.Where(x => x.id == id)
                 .Select(u => new
                 {
-                    u.Id,
-                    u.Nombre,
-                    u.Apellido,
-                    u.Email,
-                    u.Rol,
+                    u.id,
+                    u.nombre,
+                    u.apellido,
+                    u.email,
+                    u.rol,
                     u.Imagen
                 })
                 .ToList<object>();
@@ -100,18 +100,18 @@ namespace DavxeShop.Persistance
 
         public bool CambiarDatosUsuario(User usuario)
         {
-            var user = _context.Usuarios.FirstOrDefault(x => x.Id == usuario.id);
+            var user = _context.Usuarios.FirstOrDefault(x => x.id == usuario.id);
 
             if (user == null)
             {
                 return false;
             }
 
-            user.Nombre = usuario.nombre;
-            user.Apellido = usuario.apellido;
-            user.Email = usuario.email;
+            user.nombre = usuario.nombre;
+            user.apellido = usuario.apellido;
+            user.email = usuario.email;
             user.Imagen = usuario.Imagen;
-            user.Rol = usuario.rol;
+            user.rol = usuario.rol;
             _context.SaveChanges();
 
             return true;
@@ -131,37 +131,53 @@ namespace DavxeShop.Persistance
 
         public bool CrearUsuario(RegisterRequest user)
         {
+            using var transaction = _context.Database.BeginTransaction();
             try
             {
                 var nuevoUsuario = new Clinica.Models.dbModels.Usuario
                 {
-                    Nombre = user.nombre,
-                    Apellido = user.apellido,
-                    Email = user.email,
-                    Contrasena = user.contrasena,
-                    Rol = user.rol,
+                    nombre = user.nombre,
+                    apellido = user.apellido,
+                    email = user.email,
+                    contrasena = user.contrasena,
+                    rol = user.rol,
                     Imagen = user.Imagen ?? ""
                 };
 
                 _context.Usuarios.Add(nuevoUsuario);
+                _context.SaveChanges();
 
                 if (user.rol == "admin")
                 {
-
+                    var admin = new Administrativo
+                    {
+                        usuario_id = nuevoUsuario.id,
+                        puesto = "Administrativo"
+                    };
+                    _context.Administrativos.Add(admin);
                 }
                 else if (user.rol == "odontologo")
                 {
-
+                    var odontologo = new Odontologo
+                    {
+                        usuario_id = nuevoUsuario.id,
+                        especialidad = "Odontologo",
+                        horario_atencion = "LU-08:00a15:00|MA-08:00a15:00|MI-08:00a15:00|JU-08:00a15:00|VI-08:00a15:00|SA-08:00a15:00|DO-08:00a15:00|"
+                    };
+                    _context.Odontologos.Add(odontologo);
                 }
 
                 _context.SaveChanges();
+                transaction.Commit();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                transaction.Rollback();
                 return false;
             }
         }
+
         public bool CrearPaciente(AltaPacienteRequest paciente)
         {
             try
@@ -170,17 +186,17 @@ namespace DavxeShop.Persistance
                 if (DateTime.Now < paciente.fecha_nacimiento.AddYears(edad)) edad--;
 
                 var responsable = edad < 18
-                    ? _context.Responsables.FirstOrDefault(x => x.Nombre == paciente.responsable_nombre && x.Apellido == paciente.responsable_apellido && x.Email == paciente.responsable_email)?.Id
+                    ? _context.Responsables.FirstOrDefault(x => x.nombre == paciente.responsable_nombre && x.apellido == paciente.responsable_apellido && x.email == paciente.responsable_email)?.id
                     : 0;
                 var nuevoPaciente = new Clinica.Models.dbModels.Paciente
                 {
-                    Nombre = paciente.nombre,
-                    Apellido = paciente.apellido,
-                    Email = paciente.email,
-                    Telefono = paciente.telefono,
-                    FechaNacimiento = paciente.fecha_nacimiento,
-                    TipoPago = paciente.tipo_pago,
-                    ResponsableId = responsable,
+                    nombre = paciente.nombre,
+                    apellido = paciente.apellido,
+                    email = paciente.email,
+                    telefono = paciente.telefono,
+                    fecha_nacimiento = paciente.fecha_nacimiento,
+                    tipo_pago = paciente.tipo_pago,
+                    responsable_id = responsable,
                     Imagen = paciente.imagen,
                 };
 
@@ -210,20 +226,20 @@ namespace DavxeShop.Persistance
         public Object PacientePorId(int id)
         {
             var paciente = (from p in _context.Pacientes
-                            join r in _context.Responsables on p.ResponsableId equals r.Id
-                            where p.Id == id
+                            join r in _context.Responsables on p.responsable_id equals r.id
+                            where p.id == id
                             select new
                             {
-                                p.Id,
-                                p.Nombre,
-                                p.Apellido,
-                                p.Email,
-                                p.FechaNacimiento,
-                                p.Telefono,
-                                p.TipoPago,
-                                responsable_nombre = r.Nombre,
-                                responsable_apellido = r.Apellido,
-                                responsable_email = r.Email,
+                                p.id,
+                                p.nombre,
+                                p.apellido,
+                                p.email,
+                                p.fecha_nacimiento,
+                                p.telefono,
+                                p.tipo_pago,
+                                responsable_nombre = r.nombre,
+                                responsable_apellido = r.apellido,
+                                responsable_email = r.email,
                                 p.Imagen
                             }).ToList<object>();
 
@@ -237,23 +253,23 @@ namespace DavxeShop.Persistance
             if (DateTime.Now < pacientes.fecha_nacimiento.AddYears(edad)) edad--;
 
             var responsable = edad < 18
-                ? _context.Responsables.FirstOrDefault(x => x.Nombre == pacientes.responsable_nombre && x.Apellido == pacientes.responsable_apellido && x.Email == pacientes.responsable_email)?.Id
+                ? _context.Responsables.FirstOrDefault(x => x.nombre == pacientes.responsable_nombre && x.apellido == pacientes.responsable_apellido && x.email == pacientes.responsable_email)?.id
                 : 0;
 
-            var user = _context.Pacientes.FirstOrDefault(x => x.Id == pacientes.id);
+            var user = _context.Pacientes.FirstOrDefault(x => x.id == pacientes.id);
 
             if (user == null)
             {
                 return false;
             }
 
-            user.Nombre = pacientes.nombre;
-            user.Apellido = pacientes.apellido;
-            user.Email = pacientes.email;
-            user.FechaNacimiento = pacientes.fecha_nacimiento;
-            user.Telefono = pacientes.email;
-            user.TipoPago = pacientes.email;
-            user.ResponsableId = responsable;
+            user.nombre = pacientes.nombre;
+            user.apellido = pacientes.apellido;
+            user.email = pacientes.email;
+            user.fecha_nacimiento = pacientes.fecha_nacimiento;
+            user.telefono = pacientes.email;
+            user.tipo_pago = pacientes.email;
+            user.responsable_id = responsable;
             user.Imagen = pacientes.imagen;
             _context.SaveChanges();
 

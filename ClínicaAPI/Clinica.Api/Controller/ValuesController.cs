@@ -29,11 +29,11 @@ namespace DavxeShop.Api.Controller
             {
                 user = new
                 {
-                    id = logIn.Id,
-                    nombre = logIn.Nombre,
-                    apellido = logIn.Apellido,
-                    email = logIn.Email,
-                    rol = logIn.Rol,
+                    id = logIn.id,
+                    nombre = logIn.nombre,
+                    apellido = logIn.apellido,
+                    email = logIn.email,
+                    rol = logIn.rol,
                     imagen = logIn.Imagen,
                 }
                 ,
