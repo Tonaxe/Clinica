@@ -1,12 +1,11 @@
 ﻿using Clinica.Models;
-using DavxeShop.Models;
+using Clinica.Models.dbModels;
 
 namespace DavxeShop.Persistance.Interfaces
 {
     public interface IDavxeShopDboHelper
     {
-        Usuarios LogIn(LoginRequest loginRequest);
-        bool LogOut(string token);
+        Usuario LogIn(LoginRequest loginRequest);
         bool GuardarImagen(int id, string imagenBase64);
         string ObtenerImagen(int id);
         List<object> ObtenerAllUsuarios();

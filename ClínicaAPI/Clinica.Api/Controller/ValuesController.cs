@@ -1,10 +1,6 @@
 ﻿using Clinica.Models;
 using DavxeShop.Library.Services.Interfaces;
-using DavxeShop.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using System.Timers;
 
 namespace DavxeShop.Api.Controller
 {
@@ -33,34 +29,16 @@ namespace DavxeShop.Api.Controller
             {
                 user = new
                 {
-                    id = logIn.id,
-                    nombre = logIn.nombre,
-                    apellido = logIn.apellido,
-                    email = logIn.email,
-                    rol = logIn.rol,
+                    id = logIn.Id,
+                    nombre = logIn.Nombre,
+                    apellido = logIn.Apellido,
+                    email = logIn.Email,
+                    rol = logIn.Rol,
                     imagen = logIn.Imagen,
                 }
                 ,
                 message = "El usuario se ha encontrado exitosamente."
             });
-        }
-
-        [HttpPost("logout")]
-        public IActionResult LogOut([FromBody] string token)
-        {
-            if (token == null)
-            {
-                return BadRequest(new { message = "El contenido de la petición está incompleto." });
-            }
-
-            var loggedOut = _userService.LogOut(token);
-
-            if (!loggedOut)
-            {
-                return StatusCode(500, new { message = "La sesión no se ha cerrado correctamente." });
-            }
-
-            return Ok(new { message = "Operación realizada correctamente." });
         }
 
         [HttpPost("usuario/{id}/imagen")]
@@ -128,7 +106,7 @@ namespace DavxeShop.Api.Controller
                 return NotFound($"No se encontró un usuario con ID {id}.");
             }
 
-            return Ok(new { message = $"Usuario con ID {id} eliminado correctamente." } );
+            return Ok(new { message = $"Usuario con ID {id} eliminado correctamente." });
         }
 
         [HttpPost("crearUsuario")]

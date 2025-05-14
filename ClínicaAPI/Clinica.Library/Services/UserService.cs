@@ -1,6 +1,6 @@
 ﻿using Clinica.Models;
+using Clinica.Models.dbModels;
 using DavxeShop.Library.Services.Interfaces;
-using DavxeShop.Models;
 using DavxeShop.Persistance.Interfaces;
 using Microsoft.AspNetCore.Http;
 
@@ -15,14 +15,9 @@ namespace DavxeShop.Library.Services
             _davxeShopDboHelper = davxeShopDboHelper;
         }
 
-        public Usuarios LogIn(LoginRequest loginRequest)
+        public Usuario LogIn(LoginRequest loginRequest)
         {
             return _davxeShopDboHelper.LogIn(loginRequest);
-        }
-
-        public bool LogOut(string token)
-        {
-            return _davxeShopDboHelper.LogOut(token);
         }
 
         public bool SubirImagen(int id, IFormFile imagen)
