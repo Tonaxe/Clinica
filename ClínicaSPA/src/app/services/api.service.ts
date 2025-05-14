@@ -6,6 +6,7 @@ import { AllUsersResponse } from '../models/allUsers.model';
 import { User } from '../models/user.model';
 import { CreateUser } from '../models/register.model';
 import { Paciente, PacienteResponse } from '../models/paciente.model';
+import { VisitaResponse } from '../models/visit.model';
 
 @Injectable({
   providedIn: 'root',
@@ -62,5 +63,9 @@ export class ApiService {
 
   updatePaciente(user: Paciente): Observable<Paciente> {
     return this.http.patch<Paciente>(`${this.baseUrl}editarPaciente`, user, { headers: this.headers });
+  }
+
+  getAllVisitas(): Observable<VisitaResponse> {
+    return this.http.get<VisitaResponse>(`${this.baseUrl}visitas`, { headers: this.headers });
   }
 }
