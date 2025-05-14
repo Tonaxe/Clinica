@@ -35,8 +35,7 @@ namespace DavxeShop.Api.Controller
                     email = logIn.email,
                     rol = logIn.rol,
                     imagen = logIn.Imagen,
-                }
-                ,
+                },
                 message = "El usuario se ha encontrado exitosamente."
             });
         }
@@ -177,6 +176,17 @@ namespace DavxeShop.Api.Controller
                 return NotFound("No hay usuarios guardados.");
             }
             return Ok(new { pacientes = paciente });
+        }
+
+        [HttpGet("visitas")]
+        public IActionResult ObtenerAllVisitas()
+        {
+            var visitas = _userService.ObtenerAllVisitas();
+            if (visitas == null)
+            {
+                return NotFound("No hay visitas guardadas.");
+            }
+            return Ok(new { visitas = visitas, message = "Viistas devueltas exitosamente" });
         }
     }
 }

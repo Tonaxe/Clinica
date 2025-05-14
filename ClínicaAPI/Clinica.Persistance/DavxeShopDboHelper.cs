@@ -1,6 +1,7 @@
 ﻿using Clinica.Models;
 using Clinica.Models.dbModels;
 using DavxeShop.Persistance.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DavxeShop.Persistance
 {
@@ -274,6 +275,35 @@ namespace DavxeShop.Persistance
             _context.SaveChanges();
 
             return true;
+        }
+
+        public List<object> ObtenerAllVisitas()
+        {
+            var visitas = _context.Visitas
+                .Include(v => v.Paciente)
+                .Include(v => v.Odontologo)
+                    .ThenInclude(o => o.Usuario)
+                .Select(v => new
+                {
+                    v.id,
+                    v.fecha_hora,
+                    v.motivo,
+                    v.observaciones,
+                    v.tratamiento_prescrito,
+                    Paciente = new
+                    {
+                        v.Paciente.nombre,
+                        v.Paciente.apellido
+                    },
+                    Odontologo = new
+                    {
+                        v.Odontologo.Usuario.nombre,
+                        v.Odontologo.Usuario.apellido
+                    }
+                })
+                .ToList<object>();
+
+            return visitas;
         }
     }
 }

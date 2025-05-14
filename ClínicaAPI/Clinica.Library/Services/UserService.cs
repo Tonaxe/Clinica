@@ -86,5 +86,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.CambiarDatosPaciente(pacientes);
         }
+
+        public List<object> ObtenerAllVisitas()
+        {
+            return _davxeShopDboHelper.ObtenerAllVisitas();
+        }
     }
 }
