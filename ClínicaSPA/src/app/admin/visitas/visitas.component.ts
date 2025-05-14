@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api.service';
+import { Visita } from '../../models/visit.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-visitas',
@@ -8,10 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './visitas.component.css'
 })
 export class VisitasComponent implements OnInit {
-  visitas: any[] = [];
+  visitas: Visita[] = [];
   visitaForm!: FormGroup;
+ 
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private router: Router ,private fb: FormBuilder, private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.visitaForm = this.fb.group({
@@ -20,18 +24,16 @@ export class VisitasComponent implements OnInit {
       fecha: ['', Validators.required],
       motivo: ['', Validators.required],
       observaciones: ['']
-    });
+    });  
 
-    this.visitas = [
-      {
-        id: 1,
-        paciente: 'Juan Pérez',
-        odontologo: 'Dra. Ramírez',
-        fecha: '2025-05-11',
-        motivo: 'Revisión general',
-        observaciones: 'Sin problemas detectados.'
+     this.apiService.getAllVisitas().subscribe(
+      (response) => {
+        this.visitas = response.visitas;
+      },
+      (error) => {
+        console.error(error);
       }
-    ];
+    );
   }
 
   agregarVisita(): void {
@@ -47,10 +49,18 @@ export class VisitasComponent implements OnInit {
   }
 
   eliminarVisita(id: number): void {
-    this.visitas = this.visitas.filter(v => v.id !== id);
+
+    this.apiService.eliminarVisita(id).subscribe(
+      (response) => {
+        this.visitas = this.visitas.filter(visitas => visitas.id !== id);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   editarVisita(id: number): void {
-    console.log(`Editar visita con ID ${id}`);
+    this.router.navigate([`/admin/visitas/editar/${id}`]);
   }
 }

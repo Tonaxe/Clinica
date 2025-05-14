@@ -29,14 +29,16 @@
     <tbody>
       <tr *ngFor="let visita of visitas">
         <td>{{ visita.id }}</td>
-        <td>{{ visita.paciente }}</td>
-        <td>{{ visita.odontologo }}</td>
-        <td>{{ visita.fecha }}</td>
+        <td>{{ visita.paciente.nombre }} {{ visita.paciente.apellido }}</td>
+        <td>{{ visita.odontologo.nombre }} {{ visita.odontologo.apellido }}</td>
+        <td>{{ visita.fecha_hora }}</td>
         <td>{{ visita.motivo }}</td>
         <td>{{ visita.observaciones || '—' }}</td>
         <td>
-          <button (click)="editarVisita(visita.id)">Editar</button>
-          <button (click)="eliminarVisita(visita.id)">Eliminar</button>
+           <div class="action-buttons">
+             <button (click)="editarVisita(visita.id)">Editar</button>
+             <button (click)="eliminarVisita(visita.id)">Eliminar</button>
+              </div>
         </td>
       </tr>
     </tbody>

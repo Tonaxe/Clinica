@@ -1,54 +1,55 @@
-.visitas-container {
+.editar-visita-container {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-width: 80%;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-h2 {
-  text-align: center;
+.editar-visita-container h2 {
+  font-size: 24px;
   color: #333;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.visita-form {
-  margin-bottom: 20px;
+form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
-.form-row {
-  display: flex;
-  gap: 10px;
-}
-
-input {
-  flex: 1;
-  padding: 10px;
+label {
   font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
 }
 
 button {
-  align-self: flex-start;
-  padding: 10px 20px;
+  padding: 12px 20px;
   background-color: #17a2b8;
   color: white;
-  margin-top: 10px;
-  border: none;
   border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
+  border: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.action-buttons {
-  display: flex;
-  gap: 8px; 
-}
-
 
 button:hover {
   background-color: #138496;
@@ -60,18 +61,17 @@ button:disabled {
   cursor: not-allowed;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  text-align: left;
+.cancel-btn {
+  background-color: #dc3545;
 }
 
-th {
-  background-color: #e9ecef;
+.cancel-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
 }

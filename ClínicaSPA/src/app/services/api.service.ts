@@ -68,4 +68,7 @@ export class ApiService {
   getAllVisitas(): Observable<VisitaResponse> {
     return this.http.get<VisitaResponse>(`${this.baseUrl}visitas`, { headers: this.headers });
   }
+  eliminarVisita(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.baseUrl}visitas/${id}`, { headers: this.headers });
+  }
 }
