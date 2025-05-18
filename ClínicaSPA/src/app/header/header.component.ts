@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  showDropdown = false;
   user = {
     nombre: '',
     apellido: '',
@@ -15,7 +16,7 @@ export class HeaderComponent {
     imagen: ''
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     const userData = sessionStorage.getItem('user');
@@ -31,4 +32,32 @@ export class HeaderComponent {
   logout() {
     sessionStorage.clear();
   }
+ toggleDropdown() {
+  console.log('Toggle clicked');
+  this.showDropdown = !this.showDropdown;
+}
+
+
+
+editarPerfil() {
+  if (this.user.rol === 'admin') {
+    this.router.navigate(['/admin/perfil']);
+  } 
+  //else if (this.user.rol === 'odontologo') {
+  //   this.router.navigate(['/odontologo/editar-perfil']);
+  else {
+    console.warn('Rol desconocido:', this.user.rol);
+   
+    this.router.navigate(['/login']);
+  }
+
+  this.showDropdown = false; 
+}
+
+ cerrarSesion() {
+  sessionStorage.clear();
+  this.router.navigate(['/login']);
+}
+
+
 }

@@ -1,7 +1,27 @@
 <header class="header">
-    <div class="user-info">
-        <span>{{ user.nombre }} {{ user.apellido }}</span>
-        <img *ngIf="user.imagen" [src]="'data:image/jpeg;base64,' + user.imagen" alt="Perfil" />
-        <img *ngIf="!user.imagen" src="assets/tooth-icon.png" alt="Perfil" />
+  <div class="user-info dropdown-wrapper">
+    <span>{{ user.nombre }} {{ user.apellido }}</span>
+
+    <img 
+      *ngIf="user.imagen" 
+      [src]="'data:image/jpeg;base64,' + user.imagen" 
+      alt="Perfil" 
+      class="profile-pic"
+      (click)="toggleDropdown()" />
+
+    <img 
+      *ngIf="!user.imagen" 
+      src="assets/tooth-icon.png" 
+      alt="Perfil" 
+      class="profile-pic"
+      (click)="toggleDropdown()" />
+
+    <div class="dropdown-menu" *ngIf="showDropdown">
+     <a (click)="editarPerfil()">Editar perfil</a>
+     <a (click)="cerrarSesion()">Cerrar sesión</a>
     </div>
+
+  </div>
 </header>
+
+
