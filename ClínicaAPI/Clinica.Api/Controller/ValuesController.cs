@@ -214,5 +214,17 @@ namespace DavxeShop.Api.Controller
 
             return Ok(new { message = "Visita actualizada correctamente" });
         }
+
+        [HttpPost("visitas")]
+        public IActionResult CrearVisita([FromBody] VisitaRequest visita)
+        {
+            var crado = _userService.CrearVisita(visita);
+            if (!crado)
+            {
+                return NotFound(new { message = "La visita no se ha creado correctamente" });
+            }
+
+            return Ok(new { message = "La visita se ha creado correctamente" });
+        }
     }
 }

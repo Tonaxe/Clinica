@@ -5,7 +5,7 @@
     <div class="form-row">
       <input formControlName="paciente" placeholder="Paciente" />
       <input formControlName="odontologo" placeholder="Odontólogo" />
-      <input formControlName="fecha" type="date" />
+      <input formControlName="fecha" type="datetime-local" />
     </div>
     <div class="form-row">
       <input formControlName="motivo" placeholder="Motivo" />
@@ -31,7 +31,7 @@
         <td>{{ visita.id }}</td>
         <td>{{ visita.paciente.nombre }} {{ visita.paciente.apellido }}</td>
         <td>{{ visita.odontologo.nombre }} {{ visita.odontologo.apellido }}</td>
-        <td>{{ visita.fecha_hora }}</td>
+        <td>{{ formatearFecha(visita.fecha_hora) }}</td>  
         <td>{{ visita.motivo }}</td>
         <td>{{ visita.observaciones || '—' }}</td>
         <td>

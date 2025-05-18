@@ -27,7 +27,7 @@ export class PacienteEditarComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telefono: ['', Validators.required],
+      telefono: ['', [Validators.required, Validators.maxLength(15)]],
       fecha_nacimiento: ['', Validators.required],
       tipo_pago: ['', Validators.required],
       esMenorEdad: [false],
@@ -42,14 +42,17 @@ export class PacienteEditarComponent implements OnInit {
   ngOnInit(): void {
     this.pacienteId = Number(this.route.snapshot.paramMap.get('id'));
     this.apiService.getPacienteById(this.pacienteId).subscribe((res: any) => {
-      console.log(res);
       const paciente = res.pacientes[0];
+
+      const fechaRaw = paciente.fecha_nacimiento || '';
+      const fechaFormateada = fechaRaw ? fechaRaw.split('T')[0] : '';
+
       this.pacienteForm.patchValue({
         nombre: paciente.nombre || '',
         apellido: paciente.apellido || '',
         email: paciente.email || '',
         telefono: paciente.telefono || '',
-        fecha_nacimiento: paciente.fecha_nacimiento || '',
+        fecha_nacimiento: fechaFormateada,
         tipo_pago: paciente.tipo_pago || '',
         responsable_nombre: paciente.responsable_nombre || '',
         responsable_apellido: paciente.responsable_apellido || '',
@@ -64,6 +67,7 @@ export class PacienteEditarComponent implements OnInit {
       }
     });
   }
+
 
   onSubmit(): void {
     if (this.pacienteForm.valid) {

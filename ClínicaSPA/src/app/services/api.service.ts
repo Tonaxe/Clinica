@@ -6,7 +6,7 @@ import { AllUsersResponse } from '../models/allUsers.model';
 import { User } from '../models/user.model';
 import { CreateUser } from '../models/register.model';
 import { Paciente, PacienteResponse } from '../models/paciente.model';
-import { VisitaResponse } from '../models/visit.model';
+import { crearVisita, Visita, VisitaResponse } from '../models/visit.model';
 
 @Injectable({
   providedIn: 'root',
@@ -68,7 +68,12 @@ export class ApiService {
   getAllVisitas(): Observable<VisitaResponse> {
     return this.http.get<VisitaResponse>(`${this.baseUrl}visitas`, { headers: this.headers });
   }
+
   eliminarVisita(id: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.baseUrl}visitas/${id}`, { headers: this.headers });
+  }
+
+  crearVisita(visita: crearVisita): Observable<boolean> {
+  return this.http.post<boolean>(`${this.baseUrl}visitas`, visita, {headers: this.headers,});
   }
 }

@@ -22,5 +22,6 @@ namespace DavxeShop.Library.Services.Interfaces
         List<object> ObtenerAllVisitas();
         bool EliminarVisita(int id);
         bool EditarVisita(int id, Visita visita);
+        bool CrearVisita(VisitaRequest visita);
     }
 }

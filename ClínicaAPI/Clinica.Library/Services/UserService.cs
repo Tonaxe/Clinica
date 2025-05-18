@@ -99,5 +99,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.EditarVisita(id, visita);
         }
+
+        public bool CrearVisita(VisitaRequest visita)
+        {
+            return _davxeShopDboHelper.CrearVisita( visita);
+        }
     }
 }

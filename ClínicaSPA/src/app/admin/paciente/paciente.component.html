@@ -17,7 +17,7 @@
       <h3>{{ paciente.nombre }} {{ paciente.apellido }}</h3>
       <p><strong>Teléfono:</strong> {{ paciente.telefono }}</p>
       <p><strong>Email:</strong> {{ paciente.email }}</p>
-      <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fecha_nacimiento }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fecha_nacimiento | date:'dd/MM/yyyy' }}</p>
       <p><strong>Tipo de Pago:</strong> {{ paciente.tipo_pago }}</p>
 
       <ng-container *ngIf="paciente.responsable_id; else noResponsable">

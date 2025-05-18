@@ -22,3 +22,11 @@ export interface Odontologo {
   nombre: string;
   apellido: string;
 }
+
+export interface crearVisita {
+  paciente: string;
+  odontologo: string;
+  fechaYhora: string;
+  motivo: string;
+  observaciones: string;
+}
