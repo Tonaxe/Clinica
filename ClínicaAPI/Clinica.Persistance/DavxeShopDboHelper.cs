@@ -162,10 +162,22 @@ namespace DavxeShop.Persistance
                     var odontologo = new Odontologo
                     {
                         usuario_id = nuevoUsuario.id,
-                        especialidad = "Odontologo",
-                        horario_atencion = "LU-08:00a15:00|MA-08:00a15:00|MI-08:00a15:00|JU-08:00a15:00|VI-08:00a15:00|SA-08:00a15:00|DO-08:00a15:00|"
+                        especialidad = "Odontologo"
                     };
+
                     _context.Odontologos.Add(odontologo);
+                    _context.SaveChanges();
+
+                    var dias = new[] { "LU", "MA", "MI", "JU", "VI" };
+                    var horarios = dias.Select(dia => new Horario
+                    {
+                        odontologo_id = odontologo.id,
+                        dia = dia,
+                        hora_inicio = TimeSpan.Parse("08:00"),
+                        hora_fin = TimeSpan.Parse("15:00")
+                    }).ToList();
+
+                    _context.Horarios.AddRange(horarios);
                 }
 
                 _context.SaveChanges();
