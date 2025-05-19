@@ -361,14 +361,52 @@ namespace DavxeShop.Persistance
         {
             try
             {
-                var pacienteId = _context.Pacientes.FirstOrDefault(x => x.nombre == visita.paciente).id;
-                var odontologoId = _context.Odontologos.FirstOrDefault(y => y.usuario_id == _context.Usuarios.FirstOrDefault(x => x.nombre == visita.odontologo).id).id;
+                var pacienteId = _context.Pacientes.FirstOrDefault(x => x.nombre == visita.paciente)?.id;
+                if (pacienteId == null) return false;
+
+                var usuarioOdontologo = _context.Usuarios.FirstOrDefault(x => x.nombre == visita.odontologo);
+                if (usuarioOdontologo == null) return false;
+
+                var odontologoEntity = _context.Odontologos.FirstOrDefault(y => y.usuario_id == usuarioOdontologo.id);
+                if (odontologoEntity == null) return false;
+
+                int odontologoId = odontologoEntity.id;
+
+                DateTime fechaHora = visita.fechaYhora;
+
+                string diaSemana = fechaHora.DayOfWeek switch
+                {
+                    DayOfWeek.Monday => "Lunes",
+                    DayOfWeek.Tuesday => "Martes",
+                    DayOfWeek.Wednesday => "Miércoles",
+                    DayOfWeek.Thursday => "Jueves",
+                    DayOfWeek.Friday => "Viernes",
+                    DayOfWeek.Saturday => "Sábado",
+                    DayOfWeek.Sunday => "Domingo",
+                    _ => ""
+                };
+
+                var horario = _context.Horarios
+                    .FirstOrDefault(h => h.odontologo_id == odontologoId && h.dia == diaSemana);
+
+                if (horario == null)
+                    return false;
+
+                var horaSolicitud = fechaHora.TimeOfDay;
+
+                if (horaSolicitud < horario.hora_inicio || horaSolicitud >= horario.hora_fin)
+                    return false;
+
+                bool visitaExistente = _context.Visitas.Any(v => v.odontologo_id == odontologoId && v.fecha_hora >= fechaHora);
+
+                if (visitaExistente)
+                    return false;
 
                 var visitaF = new Visita
                 {
-                    paciente_id = pacienteId,
+                    paciente_id = pacienteId.Value,
                     odontologo_id = odontologoId,
-                    fecha_hora = visita.fechaYhora,
+                    fecha_hora = fechaHora,
                     motivo = visita.motivo,
                     observaciones = visita.observaciones,
                 };
