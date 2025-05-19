@@ -32,9 +32,9 @@ export interface crearVisita {
 }
 
 export interface VisitaEditarRequest {
-  paciente_id: number;
-  odontologo_id: number;
-  fecha_hora: string;
+  paciente: string;
+  odontologo: string;
+  fechaYhora: string;
   motivo: string;
   observaciones: string;
   tratamiento_prescrito: string;

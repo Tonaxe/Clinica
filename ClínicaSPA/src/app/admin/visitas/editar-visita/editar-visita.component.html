@@ -2,7 +2,14 @@
   <h2>Editar Visita</h2>
 
   <form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
+    <label for="paciente">Paciente:</label>
+    <textarea id="paciente" formControlName="paciente"></textarea>
 
+    <label for="odontologo">Odontologo:</label>
+    <textarea id="odontologo" formControlName="odontologo"></textarea>
+
+    <hr />
+    
     <label for="fecha_hora">Fecha y Hora:</label>
     <input id="fecha_hora" type="datetime-local" formControlName="fecha_hora" />
 
@@ -14,13 +21,6 @@
 
     <label for="tratamiento_prescrito">Tratamiento Prescrito:</label>
     <textarea id="tratamiento_prescrito" formControlName="tratamiento_prescrito"></textarea>
-
-    <hr />
-
-    <div class="datos-asociados">
-      <p><strong>Paciente:</strong> {{ visitaForm.value.paciente_nombre }} {{ visitaForm.value.paciente_apellido }}</p>
-      <p><strong>Odontólogo:</strong> {{ visitaForm.value.odontologo_nombre }} {{ visitaForm.value.odontologo_apellido }}</p>
-    </div>
 
     <div class="botones">
       <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>

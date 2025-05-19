@@ -40,10 +40,16 @@ textarea {
   resize: vertical;
 }
 
+
+.form-actions,
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 button {
-  padding: 12px 20px;
-  background-color: #17a2b8;
-  color: white;
+  padding: 10px 20px;
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
@@ -52,26 +58,30 @@ button {
 }
 
 button:hover {
-  background-color: #138496;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-button:disabled {
+button[disabled] {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
+.cancelar,
 .cancel-btn {
-  background-color: #dc3545;
+  background-color: #6c757d;
+  color: #fff;
 }
 
+.cancelar:hover,
 .cancel-btn:hover {
-  background-color: #c82333;
-  transform: scale(1.05);
+  background-color: #5a6268;
+}
+
+button[type='submit'] {
+  background-color: #007bff;
+  color: #fff;
+}
+
+button[type='submit']:hover {
+  background-color: #0056b3;
 }

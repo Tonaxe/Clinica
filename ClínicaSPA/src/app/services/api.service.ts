@@ -44,13 +44,13 @@ export class ApiService {
   crearUsuario(user: CreateUser): Observable<boolean> {
     return this.http.post<boolean>(`${this.baseUrl}crearUsuario`, user, { headers: this.headers });
   }
- 
+
   getAllPacientes(): Observable<PacienteResponse> {
-  return this.http.get<PacienteResponse>(`${this.baseUrl}pacientes`, { headers: this.headers });
+    return this.http.get<PacienteResponse>(`${this.baseUrl}pacientes`, { headers: this.headers });
   }
 
   crearPaciente(paciente: Paciente): Observable<boolean> {
-  return this.http.post<boolean>(`${this.baseUrl}crearPaciente`, paciente, {headers: this.headers,});
+    return this.http.post<boolean>(`${this.baseUrl}crearPaciente`, paciente, { headers: this.headers, });
   }
 
   deletePaciente(id: number): Observable<boolean> {
@@ -74,14 +74,14 @@ export class ApiService {
   }
 
   crearVisita(visita: crearVisita): Observable<boolean> {
-  return this.http.post<boolean>(`${this.baseUrl}visitas`, visita, {headers: this.headers,});
+    return this.http.post<boolean>(`${this.baseUrl}visitas`, visita, { headers: this.headers, });
   }
 
   getVisitaById(id: number): Observable<VisitaResponse> {
     return this.http.get<VisitaResponse>(`${this.baseUrl}visitas/${id}`, { headers: this.headers });
   }
 
-  updateVisita(id: number): Observable<VisitaEditarRequest> {
-    return this.http.put<VisitaEditarRequest>(`${this.baseUrl}visitas/${id}`, { headers: this.headers });
+  updateVisita(id: number, visitaActualizada: VisitaEditarRequest): Observable<VisitaEditarRequest> {
+    return this.http.put<VisitaEditarRequest>(`${this.baseUrl}visitas/${id}`, visitaActualizada, {headers: this.headers});
   }
 }

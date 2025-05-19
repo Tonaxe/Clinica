@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
+import { VisitaEditarRequest } from '../../../models/visit.model';
 
 @Component({
   selector: 'app-editar-visita',
@@ -25,10 +26,8 @@ export class EditarVisitaComponent implements OnInit {
       motivo: ['', Validators.required],
       observaciones: [''],
       tratamiento_prescrito: [''],
-      paciente_nombre: [''],
-      paciente_apellido: [''],
-      odontologo_nombre: [''],
-      odontologo_apellido: ['']
+      paciente: ['', Validators.required],
+      odontologo: ['', Validators.required]
     });
   }
 
@@ -39,16 +38,16 @@ export class EditarVisitaComponent implements OnInit {
 
   cargarDatosVisita(id: number): void {
     this.apiService.getVisitaById(id).subscribe({
-      next: (data: any) => {
+      next: (response: any) => {
+        const data = response.visitas;
+
         this.visitaForm.patchValue({
           fecha_hora: this.toLocalDateTime(data.fecha_hora),
           motivo: data.motivo,
           observaciones: data.observaciones,
           tratamiento_prescrito: data.tratamiento_prescrito,
-          paciente_nombre: data.paciente.nombre,
-          paciente_apellido: data.paciente.apellido,
-          odontologo_nombre: data.odontologo.nombre,
-          odontologo_apellido: data.odontologo.apellido
+          paciente: data.paciente.nombre + " " + data.paciente.apellido,
+          odontologo: data.odontologo.nombre + " " + data.odontologo.apellido,
         });
       },
       error: (err) => {
@@ -65,9 +64,11 @@ export class EditarVisitaComponent implements OnInit {
 
   onSubmit(): void {
     if (this.visitaForm.valid) {
-      const visitaActualizada = {
-        paciente_id: this.visitaId,
-        fecha_hora: new Date(this.visitaForm.value.fecha_hora).toISOString(),
+      const raw = this.visitaForm.getRawValue();
+      const visitaActualizada: VisitaEditarRequest = {
+        paciente: typeof raw.paciente === 'string' ? raw.paciente.split(' ')[0] : raw.paciente,
+        odontologo: typeof raw.odontologo === 'string' ? raw.odontologo.split(' ')[0] : raw.odontologo,
+        fechaYhora: new Date(this.visitaForm.value.fecha_hora).toISOString(),
         motivo: this.visitaForm.value.motivo,
         observaciones: this.visitaForm.value.observaciones,
         tratamiento_prescrito: this.visitaForm.value.tratamiento_prescrito

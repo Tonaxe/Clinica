@@ -329,7 +329,7 @@ namespace DavxeShop.Persistance
             return true;
         }
 
-        public bool EditarVisita(int id, VisitaRequest visitaActualizada)
+        public bool EditarVisita(int id, VisitaEditarRequest visitaActualizada)
         {
             try
             {
@@ -350,13 +350,13 @@ namespace DavxeShop.Persistance
 
                 string diaSemana = fechaHora.DayOfWeek switch
                 {
-                    DayOfWeek.Monday => "Lunes",
-                    DayOfWeek.Tuesday => "Martes",
-                    DayOfWeek.Wednesday => "Miércoles",
-                    DayOfWeek.Thursday => "Jueves",
-                    DayOfWeek.Friday => "Viernes",
-                    DayOfWeek.Saturday => "Sábado",
-                    DayOfWeek.Sunday => "Domingo",
+                    DayOfWeek.Monday => "LU",
+                    DayOfWeek.Tuesday => "MA",
+                    DayOfWeek.Wednesday => "MI",
+                    DayOfWeek.Thursday => "JU",
+                    DayOfWeek.Friday => "VI",
+                    DayOfWeek.Saturday => "SA",
+                    DayOfWeek.Sunday => "DO",
                     _ => ""
                 };
 
@@ -411,13 +411,13 @@ namespace DavxeShop.Persistance
 
                 string diaSemana = fechaHora.DayOfWeek switch
                 {
-                    DayOfWeek.Monday => "Lunes",
-                    DayOfWeek.Tuesday => "Martes",
-                    DayOfWeek.Wednesday => "Miércoles",
-                    DayOfWeek.Thursday => "Jueves",
-                    DayOfWeek.Friday => "Viernes",
-                    DayOfWeek.Saturday => "Sábado",
-                    DayOfWeek.Sunday => "Domingo",
+                    DayOfWeek.Monday => "LU",
+                    DayOfWeek.Tuesday => "MA",
+                    DayOfWeek.Wednesday => "MI",
+                    DayOfWeek.Thursday => "JU",
+                    DayOfWeek.Friday => "VI",
+                    DayOfWeek.Saturday => "SA",
+                    DayOfWeek.Sunday => "DO",
                     _ => ""
                 };
 
