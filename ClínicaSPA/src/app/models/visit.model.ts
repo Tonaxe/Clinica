@@ -30,3 +30,12 @@ export interface crearVisita {
   motivo: string;
   observaciones: string;
 }
+
+export interface VisitaEditarRequest {
+  paciente_id: number;
+  odontologo_id: number;
+  fecha_hora: string;
+  motivo: string;
+  observaciones: string;
+  tratamiento_prescrito: string;
+}

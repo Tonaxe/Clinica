@@ -1,62 +1,30 @@
-<!-- <div class="editar-visita-container">
+<div class="editar-visita-container">
   <h2>Editar Visita</h2>
 
-  <form (ngSubmit)="guardarCambios()">
-    <label for="paciente_id">ID del Paciente</label>
-    <input
-      type="number"
-      id="paciente_id"
-      name="paciente_id"
-      [(ngModel)]="visita.paciente_id"
-      required
-    />
+  <form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
 
-    <label for="odontologo_id">ID del Odontólogo</label>
-    <input
-      type="number"
-      id="odontologo_id"
-      name="odontologo_id"
-      [(ngModel)]="visita.odontologo_id"
-      required
-    />
+    <label for="fecha_hora">Fecha y Hora:</label>
+    <input id="fecha_hora" type="datetime-local" formControlName="fecha_hora" />
 
-    <label for="fecha_hora">Fecha y Hora</label>
-    <input
-      type="datetime-local"
-      id="fecha_hora"
-      name="fecha_hora"
-      [(ngModel)]="visita.fecha_hora"
-      required
-    />
+    <label for="motivo">Motivo:</label>
+    <input id="motivo" type="text" formControlName="motivo" />
 
-    <label for="motivo">Motivo</label>
-    <input
-      type="text"
-      id="motivo"
-      name="motivo"
-      [(ngModel)]="visita.motivo"
-      required
-    />
+    <label for="observaciones">Observaciones:</label>
+    <textarea id="observaciones" formControlName="observaciones"></textarea>
 
-    <label for="observaciones">Observaciones</label>
-    <textarea
-      id="observaciones"
-      name="observaciones"
-      [(ngModel)]="visita.observaciones"
-      rows="3"
-    ></textarea>
+    <label for="tratamiento_prescrito">Tratamiento Prescrito:</label>
+    <textarea id="tratamiento_prescrito" formControlName="tratamiento_prescrito"></textarea>
 
-    <label for="tratamiento_prescrito">Tratamiento Prescrito</label>
-    <textarea
-      id="tratamiento_prescrito"
-      name="tratamiento_prescrito"
-      [(ngModel)]="visita.tratamiento_prescrito"
-      rows="2"
-    ></textarea>
+    <hr />
 
-    <div class="form-actions">
-      <button type="submit">Guardar</button>
-      <button type="button" class="cancel-btn" (click)="cancelarEdicion()">Cancelar</button>
+    <div class="datos-asociados">
+      <p><strong>Paciente:</strong> {{ visitaForm.value.paciente_nombre }} {{ visitaForm.value.paciente_apellido }}</p>
+      <p><strong>Odontólogo:</strong> {{ visitaForm.value.odontologo_nombre }} {{ visitaForm.value.odontologo_apellido }}</p>
+    </div>
+
+    <div class="botones">
+      <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
+      <button type="submit" [disabled]="visitaForm.invalid">Guardar Cambios</button>
     </div>
   </form>
-</div> -->
+</div>

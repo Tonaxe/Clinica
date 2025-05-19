@@ -187,7 +187,18 @@ namespace DavxeShop.Api.Controller
             {
                 return NotFound("No hay visitas guardadas.");
             }
-            return Ok(new { visitas = visitas, message = "Viistas devueltas exitosamente" });
+            return Ok(new { visitas = visitas, message = "Visitas devueltas exitosamente" });
+        }
+
+        [HttpGet("visitas/{id}")]
+        public IActionResult ObtenerVisita(int id)
+        {
+            var visita = _userService.ObtenerVisita(id);
+            if (visita == null)
+            {
+                return NotFound("No hay visita guardada.");
+            }
+            return Ok(new { visitas = visita, message = "Visita devuelta exitosamente" });
         }
 
         [HttpDelete("visitas/{id}")]
@@ -204,7 +215,7 @@ namespace DavxeShop.Api.Controller
         }
 
         [HttpPut("visitas/{id}")]
-        public IActionResult EditarVisita(int id, [FromBody] Visita visita)
+        public IActionResult EditarVisita(int id, [FromBody] VisitaEditarRequest visita)
         {
             var editado = _userService.EditarVisita(id, visita);
             if (!editado) 

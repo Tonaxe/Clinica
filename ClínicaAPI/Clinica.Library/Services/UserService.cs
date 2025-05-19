@@ -91,18 +91,24 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.ObtenerAllVisitas();
         }
+
         public bool EliminarVisita(int id)
         {
             return _davxeShopDboHelper.EliminarVisita(id);
         }
-        public bool EditarVisita(int id, Visita visita)
+        public bool EditarVisita(int id, VisitaEditarRequest visitaRequest)
         {
-            return _davxeShopDboHelper.EditarVisita(id, visita);
+            return _davxeShopDboHelper.EditarVisita(id, visitaRequest);
         }
 
         public bool CrearVisita(VisitaRequest visita)
         {
             return _davxeShopDboHelper.CrearVisita( visita);
+        }
+
+        public object? ObtenerVisita(int id)
+        {
+            return _davxeShopDboHelper.ObtenerVisita(id);
         }
     }
 }

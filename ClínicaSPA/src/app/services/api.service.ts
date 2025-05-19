@@ -6,7 +6,7 @@ import { AllUsersResponse } from '../models/allUsers.model';
 import { User } from '../models/user.model';
 import { CreateUser } from '../models/register.model';
 import { Paciente, PacienteResponse } from '../models/paciente.model';
-import { crearVisita, Visita, VisitaResponse } from '../models/visit.model';
+import { crearVisita, Visita, VisitaEditarRequest, VisitaResponse } from '../models/visit.model';
 
 @Injectable({
   providedIn: 'root',
@@ -75,5 +75,13 @@ export class ApiService {
 
   crearVisita(visita: crearVisita): Observable<boolean> {
   return this.http.post<boolean>(`${this.baseUrl}visitas`, visita, {headers: this.headers,});
+  }
+
+  getVisitaById(id: number): Observable<VisitaResponse> {
+    return this.http.get<VisitaResponse>(`${this.baseUrl}visitas/${id}`, { headers: this.headers });
+  }
+
+  updateVisita(id: number): Observable<VisitaEditarRequest> {
+    return this.http.put<VisitaEditarRequest>(`${this.baseUrl}visitas/${id}`, { headers: this.headers });
   }
 }

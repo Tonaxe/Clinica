@@ -329,33 +329,68 @@ namespace DavxeShop.Persistance
             return true;
         }
 
-        public bool EditarVisita(int id, Visita visitaActualizada)
+        public bool EditarVisita(int id, VisitaRequest visitaActualizada)
         {
             try
             {
-                var visita = _context.Visitas
-                    .Include(v => v.Paciente)
-                    .Include(v => v.Odontologo)
-                    .FirstOrDefault(v => v.id == id);
+                var visita = _context.Visitas.FirstOrDefault(v => v.id == id);
+                if (visita == null) return false;
 
-                if (visita == null)
+                var pacienteId = _context.Pacientes.FirstOrDefault(x => x.nombre == visitaActualizada.paciente)?.id;
+                if (pacienteId == null) return false;
+
+                var usuarioOdontologo = _context.Usuarios.FirstOrDefault(x => x.nombre == visitaActualizada.odontologo);
+                if (usuarioOdontologo == null) return false;
+
+                var odontologoEntity = _context.Odontologos.FirstOrDefault(y => y.usuario_id == usuarioOdontologo.id);
+                if (odontologoEntity == null) return false;
+
+                int odontologoId = odontologoEntity.id;
+                DateTime fechaHora = visitaActualizada.fechaYhora;
+
+                string diaSemana = fechaHora.DayOfWeek switch
+                {
+                    DayOfWeek.Monday => "Lunes",
+                    DayOfWeek.Tuesday => "Martes",
+                    DayOfWeek.Wednesday => "Miércoles",
+                    DayOfWeek.Thursday => "Jueves",
+                    DayOfWeek.Friday => "Viernes",
+                    DayOfWeek.Saturday => "Sábado",
+                    DayOfWeek.Sunday => "Domingo",
+                    _ => ""
+                };
+
+                var horario = _context.Horarios
+                    .FirstOrDefault(h => h.odontologo_id == odontologoId && h.dia == diaSemana);
+
+                if (horario == null) return false;
+
+                var horaSolicitud = fechaHora.TimeOfDay;
+
+                if (horaSolicitud < horario.hora_inicio || horaSolicitud >= horario.hora_fin)
                     return false;
 
-                visita.fecha_hora = visitaActualizada.fecha_hora;
+                bool visitaExistente = _context.Visitas
+                    .Any(v => v.id != id && v.odontologo_id == odontologoId && v.fecha_hora == fechaHora);
+
+                if (visitaExistente) return false;
+
+                visita.paciente_id = pacienteId.Value;
+                visita.odontologo_id = odontologoId;
+                visita.fecha_hora = fechaHora;
                 visita.motivo = visitaActualizada.motivo;
                 visita.observaciones = visitaActualizada.observaciones;
                 visita.tratamiento_prescrito = visitaActualizada.tratamiento_prescrito;
-                visita.paciente_id = visitaActualizada.paciente_id;
-                visita.odontologo_id = visitaActualizada.odontologo_id;
 
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }
         }
+
 
         public bool CrearVisita(VisitaRequest visita)
         {
@@ -420,6 +455,36 @@ namespace DavxeShop.Persistance
             {
                 return false;
             }
+        }
+
+        public object? ObtenerVisita(int id)
+        {
+            var visita = _context.Visitas
+                .Include(v => v.Paciente)
+                .Include(v => v.Odontologo)
+                    .ThenInclude(o => o.Usuario)
+                .Where(v => v.id == id)
+                .Select(v => new
+                {
+                    v.id,
+                    v.fecha_hora,
+                    v.motivo,
+                    v.observaciones,
+                    v.tratamiento_prescrito,
+                    Paciente = new
+                    {
+                        v.Paciente.nombre,
+                        v.Paciente.apellido
+                    },
+                    Odontologo = new
+                    {
+                        nombre = v.Odontologo.Usuario.nombre,
+                        apellido = v.Odontologo.Usuario.apellido,
+                    }
+                })
+                .FirstOrDefault();
+
+            return visita;
         }
     }
 }
