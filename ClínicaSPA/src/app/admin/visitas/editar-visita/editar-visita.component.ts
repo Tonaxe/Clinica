@@ -66,7 +66,7 @@ export class EditarVisitaComponent implements OnInit {
   onSubmit(): void {
     if (this.visitaForm.valid) {
       const visitaActualizada = {
-        id: this.visitaId,
+        paciente_id: this.visitaId,
         fecha_hora: new Date(this.visitaForm.value.fecha_hora).toISOString(),
         motivo: this.visitaForm.value.motivo,
         observaciones: this.visitaForm.value.observaciones,
