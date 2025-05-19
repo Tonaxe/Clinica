@@ -110,5 +110,10 @@ namespace DavxeShop.Library.Services
         {
             return _davxeShopDboHelper.ObtenerVisita(id);
         }
+
+        public List<object> ObtenerAllVisitasByOdontologo(int id)
+        {
+            return _davxeShopDboHelper.ObtenerAllVisitasByOdontologo(id);
+        }
     }
 }

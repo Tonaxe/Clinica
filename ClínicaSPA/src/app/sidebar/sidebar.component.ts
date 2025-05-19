@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,8 +8,19 @@ import { Component, Input } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  @Input() user = {
-    name: 'Usuario',
-    role: 'admin'
-  };
+  user: User = {
+      id: 0,
+      nombre: '',
+      apellido: '',
+      email: '',
+      rol: '',
+      imagen: '',
+    };
+
+    ngOnInit(): void {
+    const userData = sessionStorage.getItem('user');
+    if (userData) {
+      this.user = JSON.parse(userData);
+    }
+  }
 }

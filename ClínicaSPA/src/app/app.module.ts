@@ -19,6 +19,8 @@ import { NuevoPacienteComponent } from './admin/paciente/nuevo-paciente/nuevo-pa
 import { PerfilComponent } from './admin/perfil/perfil.component';
 import { PacienteEditarComponent } from './admin/paciente/paciente-editar/paciente-editar.component';
 import { EditarVisitaComponent } from './admin/visitas/editar-visita/editar-visita.component';
+import { EditarVisitas2Component } from './odontologo/visitas2/editar-visitas2/editar-visitas2.component';
+import { Visitas2Component } from './odontologo/visitas2/visitas2.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EditarVisitaComponent } from './admin/visitas/editar-visita/editar-visi
     NuevoPacienteComponent,
     PerfilComponent,
     PacienteEditarComponent,
-    EditarVisitaComponent
+    EditarVisitaComponent,
+    EditarVisitas2Component,
+    Visitas2Component,
   ],
   imports: [
     BrowserModule,

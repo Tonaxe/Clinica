@@ -7,7 +7,7 @@
     <hr class="sidebar-separator top" />
 
     <nav class="nav">
-        <ng-container *ngIf="user.role === 'admin'">
+        <ng-container *ngIf="user.rol === 'admin'">
             <ul>
                 <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
                 <li><a routerLink="/admin/usuarios" routerLinkActive="active">Usuarios</a></li>
@@ -17,13 +17,10 @@
             </ul>
         </ng-container>
 
-        <ng-container *ngIf="user.role === 'odontologo'">
+        <ng-container *ngIf="user.rol === 'odontologo'">
             <ul>
                 <li><a routerLink="/odontologo/dashboard" routerLinkActive="active">Dashboard</a></li>
                 <li><a routerLink="/odontologo/visitas" routerLinkActive="active">Mis Visitas</a></li>
-                <li><a routerLink="/odontologo/visitas/nueva" routerLinkActive="active">Agendar Visita</a></li>
-                <li><a routerLink="/odontologo/observaciones" routerLinkActive="active">Registrar Observación</a></li>
-                <li><a routerLink="/odontologo/tratamientos" routerLinkActive="active">Prescribir Tratamiento</a></li>
                 <li><a routerLink="/odontologo/perfil" routerLinkActive="active">Mi Perfil</a></li>
             </ul>
         </ng-container>

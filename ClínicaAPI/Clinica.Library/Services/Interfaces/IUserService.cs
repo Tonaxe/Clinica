@@ -24,5 +24,6 @@ namespace DavxeShop.Library.Services.Interfaces
         bool EditarVisita(int id, VisitaEditarRequest visitaRequest);
         bool CrearVisita(VisitaRequest visita);
         object? ObtenerVisita(int id);
+        List<object> ObtenerAllVisitasByOdontologo(int id);
     }
 }

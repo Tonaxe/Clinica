@@ -237,5 +237,16 @@ namespace DavxeShop.Api.Controller
 
             return Ok(new { message = "La visita se ha creado correctamente" });
         }
+
+        [HttpGet("visitas/odontolog/{id}")]
+        public IActionResult ObtenerAllVisitasByOdontologo(int id)
+        {
+            var visitas = _userService.ObtenerAllVisitasByOdontologo(id);
+            if (visitas == null)
+            {
+                return NotFound("No hay visitas guardadas.");
+            }
+            return Ok(new { visitas = visitas, message = "Visitas devueltas exitosamente" });
+        }
     }
 }

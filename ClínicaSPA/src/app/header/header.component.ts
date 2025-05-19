@@ -43,8 +43,9 @@ editarPerfil() {
   if (this.user.rol === 'admin') {
     this.router.navigate(['/admin/perfil']);
   } 
-  //else if (this.user.rol === 'odontologo') {
-  //   this.router.navigate(['/odontologo/editar-perfil']);
+  else if (this.user.rol === 'odontologo') {
+    this.router.navigate(['/odontologo/perfil']);
+  }
   else {
     console.warn('Rol desconocido:', this.user.rol);
    

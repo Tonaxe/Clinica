@@ -84,4 +84,8 @@ export class ApiService {
   updateVisita(id: number, visitaActualizada: VisitaEditarRequest): Observable<VisitaEditarRequest> {
     return this.http.put<VisitaEditarRequest>(`${this.baseUrl}visitas/${id}`, visitaActualizada, {headers: this.headers});
   }
+
+  getAllVisitasByOdontologo(odontologo_id: number): Observable<VisitaResponse> {
+    return this.http.get<VisitaResponse>(`${this.baseUrl}visitas/odontolog/${odontologo_id}`, { headers: this.headers });
+  }
 }

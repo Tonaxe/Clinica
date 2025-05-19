@@ -486,5 +486,35 @@ namespace DavxeShop.Persistance
 
             return visita;
         }
+
+        public List<object> ObtenerAllVisitasByOdontologo(int id)
+        {
+            var odontologId = _context.Odontologos.FirstOrDefault(x => x.usuario_id == id).id;
+            var visitas = _context.Visitas
+                .Include(v => v.Paciente)
+                .Include(v => v.Odontologo)
+                .ThenInclude(o => o.Usuario)
+                .Where(v => v.odontologo_id == odontologId)
+                .Select(v => new
+                {
+                    v.id,
+                    v.fecha_hora,
+                    v.motivo,
+                    v.observaciones,
+                    v.tratamiento_prescrito,
+                    Paciente = new
+                    {
+                        v.Paciente.nombre,
+                        v.Paciente.apellido
+                    },
+                    Odontologo = new
+                    {
+                        v.Odontologo.Usuario.nombre,
+                        v.Odontologo.Usuario.apellido
+                    }
+                }).ToList<object>();
+
+            return visitas;
+        }
     }
 }

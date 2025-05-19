@@ -23,5 +23,6 @@ namespace DavxeShop.Persistance.Interfaces
         bool EditarVisita(int id, VisitaEditarRequest visitaActualizada);
         bool CrearVisita(VisitaRequest visita);
         object? ObtenerVisita(int id);
+        List<object> ObtenerAllVisitasByOdontologo(int id);
     }
 }

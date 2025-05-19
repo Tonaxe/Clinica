@@ -1,0 +1,30 @@
+<div class="editar-visita-container">
+  <h2>Editar Visita</h2>
+
+  <form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
+    <label for="paciente">Paciente:</label>
+    <textarea id="paciente" formControlName="paciente"></textarea>
+
+    <label for="odontologo">Odontologo:</label>
+    <textarea id="odontologo" formControlName="odontologo"></textarea>
+
+    <hr />
+    
+    <label for="fecha_hora">Fecha y Hora:</label>
+    <input id="fecha_hora" type="datetime-local" formControlName="fecha_hora" />
+
+    <label for="motivo">Motivo:</label>
+    <input id="motivo" type="text" formControlName="motivo" />
+
+    <label for="observaciones">Observaciones:</label>
+    <textarea id="observaciones" formControlName="observaciones"></textarea>
+
+    <label for="tratamiento_prescrito">Tratamiento Prescrito:</label>
+    <textarea id="tratamiento_prescrito" formControlName="tratamiento_prescrito"></textarea>
+
+    <div class="botones">
+      <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
+      <button type="submit" [disabled]="visitaForm.invalid">Guardar Cambios</button>
+    </div>
+  </form>
+</div>
