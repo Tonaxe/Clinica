@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
-import { Visita } from '../../models/visit.model';
+import { crearVisita, Visita } from '../../models/visit.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,15 +38,23 @@ export class VisitasComponent implements OnInit {
 
   agregarVisita(): void {
     if (this.visitaForm.invalid) return;
-    this.apiService.crearVisita(this.visitaForm.value).subscribe(
-      (response) => {
-        window.location.reload();
-      },
-      (error) => {
-        console.error(error);
-      }
+
+    const formValue = this.visitaForm.value;
+
+    const visita: crearVisita = {
+      paciente: formValue.paciente,
+      odontologo: formValue.odontologo,
+      motivo: formValue.motivo,
+      observaciones: formValue.observaciones,
+      fechaYhora: new Date(formValue.fecha).toISOString()
+    };
+
+    this.apiService.crearVisita(visita).subscribe(
+      () => window.location.reload(),
+      (error) => console.error(error)
     );
   }
+
 
   eliminarVisita(id: number): void {
     this.apiService.eliminarVisita(id).subscribe(

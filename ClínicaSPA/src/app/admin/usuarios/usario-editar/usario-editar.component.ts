@@ -69,16 +69,20 @@ export class UsarioEditarComponent implements OnInit {
   }
 
   onImageSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input && input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imageUrl = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
+  const input = event.target as HTMLInputElement;
+  if (input && input.files && input.files[0]) {
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageUrl = reader.result;
+
+      const base64 = (reader.result as string).split(',')[1];
+      this.userForm.get('imagen')?.setValue(base64);
+    };
+    reader.readAsDataURL(file);
   }
+}
+
 
   cancelar(): void {
     this.router.navigate(['/admin/usuarios']);
